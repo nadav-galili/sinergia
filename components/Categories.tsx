@@ -17,7 +17,7 @@ const Categories = () => {
         "פיתוח תוכניות עבודה",
         "ניתוח שוק ומתחרים",
       ],
-      imageUrl: "/categories/category1.jpeg",
+      imageUrl: "/categories/strategic_consultence.jpeg",
     },
     {
       title: "ניתוח דאטה",
@@ -27,7 +27,7 @@ const Categories = () => {
         "ניתוח מעמיק של נתוני מכירות",
         "מלאי והתנהגות צרכנים",
       ],
-      imageUrl: "/categories/category2.jpeg",
+      imageUrl: "/categories/data_analysis.jpeg",
     },
 
     {
@@ -57,13 +57,13 @@ const Categories = () => {
     <motion.div
       className="m-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4"
       initial="hidden"
-      animate="show"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
       variants={{
         hidden: {},
         show: {
           transition: {
-            staggerChildren: 0.1,
-            delayChildren: 2,
+            staggerChildren: 0.15,
           },
         },
       }}>
@@ -71,8 +71,21 @@ const Categories = () => {
         <motion.div
           key={category.title}
           variants={{
-            hidden: { y: 50, opacity: 0 },
-            show: { y: 0, opacity: 1, transition: { duration: 0.4 } },
+            hidden: {
+              y: 100,
+              opacity: 0,
+              scale: 0.8,
+            },
+            show: {
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              transition: {
+                type: "spring",
+                bounce: 0.3,
+                duration: 0.8,
+              },
+            },
           }}
           className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
           <div className="relative min-h-[250px]">

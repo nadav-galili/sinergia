@@ -18,6 +18,9 @@
   .text-30-extrabold {
     @apply text-[30px] font-extrabold text-white;
   }
+  .text-50-extrabold {
+    @apply text-[50px] font-extrabold text-white;
+  }
 
   .text-30-bold {
     @apply text-[30px] font-bold text-black;
@@ -47,17 +50,17 @@
     @apply font-normal text-sm text-white-100/80;
   }
 
-  /* .pink_container {
+  .lightblue_container {
     @apply w-full bg-primary min-h-[530px] pattern flex justify-center items-center flex-col py-10 px-6;
-  } */
+  }
 
   .tag {
     @apply bg-secondary px-6 py-3 font-work-sans font-bold rounded-sm uppercase relative tag-tri;
   }
 
-  /* .heading {
-    @apply uppercase bg-black px-6 py-3 font-work-sans font-extrabold text-white sm:text-[54px] sm:leading-[64px] text-[36px] leading-[46px] max-w-5xl text-center my-5;
-  } */
+  .heading {
+    @apply uppercase bg-primary px-6 py-3 font-work-sans font-extrabold text-white sm:text-[54px] sm:leading-[64px] text-[36px] leading-[46px] max-w-5xl text-center my-5;
+  }
 
   /* .sub-heading {
     @apply font-medium text-[20px] text-white max-w-2xl text-center break-words;
@@ -202,8 +205,8 @@
     background-image: linear-gradient(
       to right,
       transparent 49.5%,
-      rgba(251, 232, 67, 0.2) 49.5%,
-      rgba(251, 232, 67, 0.6) 50.5%,
+      rgba(72, 71, 138, 0.2) 49.5%,
+      rgba(224, 222, 205, 0.6) 50.5%,
       transparent 50.5%
     );
     background-size: 5% 100%;
@@ -218,4 +221,18 @@
 
 .w-md-editor-toolbar {
   padding: 10px !important;
+}
+
+@keyframes text-shine {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0%;
+  }
+}
+
+.animate-text-shine {
+  animation: text-shine 8s infinite linear;
+  background-size: 200% auto;
 }

@@ -48,7 +48,7 @@ export default function Navbar() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   return (
-    <div className="relative min-h-[600px]">
+    <div className="relative min-h-[900px]">
       {/* Background with improved parallax */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -123,7 +123,7 @@ export default function Navbar() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5 }}>
         <motion.h1
-          className="text-5xl font-bold tracking-tight sm:text-6xl text-primary"
+          className="text-5xl font-bold tracking-tight sm:text-6xl text-white drop-shadow-2xl [text-shadow:_2px_2px_10px_rgb(0_0_0_/_40%)] bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent animate-text-shine"
           initial="hidden"
           animate="visible"
           variants={staggerContainer}>

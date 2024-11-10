@@ -20,7 +20,8 @@ const config: Config = {
         },
         secondary: "#3DC0CF",
         tertiary: "#159FE6",
-        success: "#00C49F",
+        info: "#00C49F",
+        success: "#16ce57",
         black: {
           "100": "#333333",
           "200": "#141413",
