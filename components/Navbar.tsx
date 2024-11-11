@@ -131,7 +131,7 @@ export default function Navbar() {
             <motion.span
               key={index}
               variants={letterAnimation}
-              className="inline-block transform hover:scale-110 transition-transform duration-200">
+              className="!text-primary   text-50-extrabold inline-block transform hover:scale-110 transition-transform duration-200">
               {char === " " ? "\u00A0" : char}
             </motion.span>
           ))}
