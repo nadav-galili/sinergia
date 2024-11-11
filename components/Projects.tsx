@@ -46,7 +46,7 @@ const successStories: SuccessStory[] = [
 const Projects = () => {
   return (
     <section className="py-16 px-4 max-w-7xl mx-auto">
-      <h2 className="heading">פרוייקטים לדוגמה</h2>
+      <h2 className="heading rounded-lg">פרוייקטים לדוגמה</h2>
       <h3 className="text-30-semibold !text-white text-center mb-5 ">
         ההצלחות שלנו
       </h3>
