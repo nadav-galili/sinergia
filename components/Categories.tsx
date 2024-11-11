@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import Image from "next/image";
 interface Category {
   title: string;
   subtitles: string[];
@@ -89,9 +90,11 @@ const Categories = () => {
           }}
           className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
           <div className="relative min-h-[250px]">
-            <img
+            <Image
               src={category.imageUrl}
               alt={category.title}
+              fill
+              sizes="100vw"
               className="absolute inset-0 object-cover w-full h-full"
             />
           </div>

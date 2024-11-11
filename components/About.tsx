@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import Link from "next/link";
+import { ChevronsLeft } from "lucide-react";
 
 interface StatProps {
   end: number;
@@ -52,7 +54,9 @@ const AnimatedStat = ({ end, title }: StatProps) => {
 const About = () => {
   const partners = [
     {
+      id: 1,
       name: "אלי מרון",
+      slug: "eli-maron",
       role: 'מנכ"ל משותף SINERGIA GROUP',
       description:
         "15+ years of experience in web development and system architecture.",
@@ -61,7 +65,9 @@ const About = () => {
     },
 
     {
+      id: 2,
       name: "עירית גלילי",
+      slug: "irith-galili",
       role: 'מנכ"ל משותף SINERGIA GROUP',
       description:
         "Award-winning designer with expertise in UI/UX and brand identity.",
@@ -69,7 +75,9 @@ const About = () => {
         "https://images.cdn-files-a.com/uploads/3440451/800_crop_5ef055c5a68b9_5ef0557891268.jpg",
     },
     {
+      id: 3,
       name: "ארזה בן-עמי",
+      slug: "arza-ben-ami",
       role: 'מנכ"ל משותף SINERGIA GROUP',
       description:
         "Certified PMP with track record of delivering complex projects.",
@@ -91,8 +99,8 @@ const About = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {partners.map((partner, index) => (
-          <div key={index} className="p-6 rounded-lg bg-white shadow-lg">
+        {partners.map((partner) => (
+          <div key={partner.id} className="p-6 rounded-lg bg-white shadow-lg">
             <div className="flex justify-center mb-4">
               <Avatar className="w-24 h-24">
                 <AvatarImage
@@ -109,6 +117,12 @@ const About = () => {
             </div>
             <h3 className="text-xl font-bold mb-2">{partner.name}</h3>
             <p className="text-gray-400 font-medium mb-3">{partner.role}</p>
+            <Link
+              href={`/partners/${partner.slug}`}
+              className="flex items-center underline">
+              <p className="text-lg text-primary">קרא עוד</p>
+              <ChevronsLeft className="w-4 h-4 mr-2 text-primary" />
+            </Link>
             {/* <p className="text-gray-600">{partner.description}</p> */}
           </div>
         ))}
