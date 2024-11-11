@@ -1,4 +1,4 @@
-import { Award, Trophy } from "lucide-react";
+import { Trophy } from "lucide-react";
 
 type SuccessStory = {
   title: string;
