@@ -3,7 +3,8 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const navItems = [
   { name: "דף הבית", href: "/" },
@@ -44,26 +45,38 @@ const letterAnimation = {
   },
 };
 
+const images = ["/supermarket.webp", "/supermarket.png", "/supermarket2.jpeg"];
+
 export default function Navbar() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className="relative min-h-[900px]">
+    <div className="relative">
       {/* Background with improved parallax */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2 }}
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 h-full bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/supermarket.webp')",
+          backgroundImage: `url('${images[currentImageIndex]}')`,
           backgroundAttachment: "fixed",
+          transition: "background-image 1s ease-in-out",
         }}>
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px]" />
       </motion.div>
 
       {/* Navbar Content */}
-      <nav className="relative bg-white/95 backdrop-blur-sm shadow-md">
+      <nav className="relative bg-black/95 backdrop-blur-sm shadow-md">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex h-20 items-center justify-between">
             {/* Logo with smooth fade */}
@@ -71,10 +84,12 @@ export default function Navbar() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="text-2xl font-bold">
-              <img
+              className="text-2xl font-bold ml-auto mr-4">
+              <Image
                 src="/sinergia-logo.webp"
                 alt="Sinergia Logo"
+                width={100}
+                height={100}
                 className="h-12 w-auto transform hover:scale-105 transition-transform duration-300"
               />
             </motion.div>
@@ -95,7 +110,7 @@ export default function Navbar() {
                     className="group relative px-2 py-1"
                     onMouseEnter={() => setHoveredItem(item.name)}
                     onMouseLeave={() => setHoveredItem(null)}>
-                    <span className="relative text-primary transition-colors duration-300 hover:text-primary-300">
+                    <span className="relative !text-primary transition-colors duration-300 hover:text-primary text-20-medium">
                       {item.name}
                       {hoveredItem === item.name && (
                         <motion.span
@@ -118,7 +133,7 @@ export default function Navbar() {
 
       {/* Hero Content with improved animations */}
       <motion.div
-        className="relative mx-auto max-w-7xl px-4 py-32 text-center"
+        className="relative mx-auto max-w-7xl px-4 py-16 text-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5 }}>
@@ -131,14 +146,14 @@ export default function Navbar() {
             <motion.span
               key={index}
               variants={letterAnimation}
-              className="!text-primary   text-50-extrabold inline-block transform hover:scale-110 transition-transform duration-200">
+              className="   text-50-extrabold inline-block transform hover:scale-110 transition-transform duration-200">
               {char === " " ? "\u00A0" : char}
             </motion.span>
           ))}
         </motion.h1>
 
         <motion.p
-          className="mx-auto mt-6 max-w-2xl text-lg text-gray-200 font-light"
+          className="mx-auto mt-6 max-w-2xl text-lg text-gray-50 font-light"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.8, duration: 0.6 }}>

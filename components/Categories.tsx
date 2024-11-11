@@ -19,16 +19,6 @@ const Categories = () => {
       ],
       imageUrl: "/categories/strategic_consultence.jpeg",
     },
-    {
-      title: "ניתוח דאטה",
-      subtitles: [
-        "ניתוח מעמיק של נתוני מכירות",
-        "מלאי והתנהגות צרכנים",
-        "ניתוח מעמיק של נתוני מכירות",
-        "מלאי והתנהגות צרכנים",
-      ],
-      imageUrl: "/categories/data_analysis.jpeg",
-    },
 
     {
       title: "הדרכות מקצועיות",
@@ -39,6 +29,16 @@ const Categories = () => {
         "ניהול",
       ],
       imageUrl: "/categories/category3.jpeg",
+    },
+    {
+      title: "ניתוח דאטה",
+      subtitles: [
+        "ניתוח מעמיק של נתוני מכירות",
+        "מלאי והתנהגות צרכנים",
+        "ניתוח מעמיק של נתוני מכירות",
+        "מלאי והתנהגות צרכנים",
+      ],
+      imageUrl: "/categories/data_analysis.jpeg",
     },
     {
       title: "פלנוגרמות",

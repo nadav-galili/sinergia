@@ -2,55 +2,55 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const workSans = localFont({
+const rubik = localFont({
   src: [
     {
-      path: "./fonts/WorkSans-Black.ttf",
+      path: "./fonts/Rubik-Black.ttf",
       weight: "900",
       style: "normal",
     },
     {
-      path: "./fonts/WorkSans-ExtraBold.ttf",
+      path: "./fonts/Rubik-ExtraBold.ttf",
       weight: "800",
       style: "normal",
     },
     {
-      path: "./fonts/WorkSans-Bold.ttf",
+      path: "./fonts/Rubik-Bold.ttf",
       weight: "700",
       style: "normal",
     },
     {
-      path: "./fonts/WorkSans-SemiBold.ttf",
+      path: "./fonts/Rubik-SemiBold.ttf",
       weight: "600",
       style: "normal",
     },
     {
-      path: "./fonts/WorkSans-Medium.ttf",
+      path: "./fonts/Rubik-Medium.ttf",
       weight: "500",
       style: "normal",
     },
     {
-      path: "./fonts/WorkSans-Regular.ttf",
+      path: "./fonts/Rubik-Regular.ttf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./fonts/WorkSans-Black.ttf",
-      weight: "900",
+      path: "./fonts/Rubik-Light.ttf",
+      weight: "300",
       style: "normal",
     },
     {
-      path: "./fonts/WorkSans-Thin.ttf",
+      path: "./fonts/Rubik-Light.ttf",
       weight: "200",
       style: "normal",
     },
     {
-      path: "./fonts/WorkSans-ExtraLight.ttf",
+      path: "./fonts/Rubik-Light.ttf",
       weight: "100",
       style: "normal",
     },
   ],
-  variable: "--font-work-sans",
+  variable: "--font-rubik",
 });
 
 export const metadata: Metadata = {
@@ -65,7 +65,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="he" dir="rtl">
-      <body className={workSans.variable}>{children}</body>
+      <body className={`${rubik.variable} rubik`}>{children}</body>
     </html>
   );
 }

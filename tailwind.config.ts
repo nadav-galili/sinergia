@@ -34,7 +34,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        "work-sans": ["var(--font-work-sans)"],
+        rubik: ["var(--font-rubik)"],
       },
       borderRadius: {
         lg: "var(--radius)",
