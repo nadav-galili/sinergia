@@ -72,7 +72,7 @@ export default function Navbar() {
           backgroundAttachment: "fixed",
           transition: "background-image 1s ease-in-out",
         }}>
-        <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-black/30 " />
       </motion.div>
 
       {/* Navbar Content */}
@@ -86,7 +86,7 @@ export default function Navbar() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="text-2xl font-bold ml-auto mr-4">
               <Image
-                src="/logo.webp"
+                src="/logotransparent.png"
                 alt="Sinergia Logo"
                 width={100}
                 height={100}
