@@ -32,20 +32,20 @@ const staggerContainer = {
   },
 };
 
-const letterAnimation = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring",
-      stiffness: 120,
-      damping: 12,
-    },
-  },
-};
+// const letterAnimation = {
+//   hidden: { opacity: 0, y: 50 },
+//   visible: {
+//     opacity: 1,
+//     y: 0,
+//     transition: {
+//       type: "spring",
+//       stiffness: 120,
+//       damping: 12,
+//     },
+//   },
+// };
 
-const images = ["/supermarket.webp", "/supermarket.png", "/supermarket2.jpeg"];
+const images = ["/supermarket.webp", "/header1.jpeg", "/header2.jpeg"];
 
 export default function Navbar() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
@@ -86,11 +86,11 @@ export default function Navbar() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="text-2xl font-bold ml-auto mr-4">
               <Image
-                src="/sinergia-logo.webp"
+                src="/logo.webp"
                 alt="Sinergia Logo"
                 width={100}
                 height={100}
-                className="h-12 w-auto transform hover:scale-105 transition-transform duration-300"
+                className="h-12 w-auto rounded-lg transform hover:scale-105 transition-transform duration-300"
               />
             </motion.div>
 
@@ -110,7 +110,7 @@ export default function Navbar() {
                     className="group relative px-2 py-1"
                     onMouseEnter={() => setHoveredItem(item.name)}
                     onMouseLeave={() => setHoveredItem(null)}>
-                    <span className="relative !text-primary transition-colors duration-300 hover:text-primary text-20-medium">
+                    <span className="relative !text-white transition-colors duration-300 hover:text-primary text-30-semibold">
                       {item.name}
                       {hoveredItem === item.name && (
                         <motion.span
@@ -137,7 +137,7 @@ export default function Navbar() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5 }}>
-        <motion.h1
+        {/* <motion.h1
           className="text-5xl font-bold tracking-tight sm:text-6xl text-white drop-shadow-2xl [text-shadow:_2px_2px_10px_rgb(0_0_0_/_40%)] bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent animate-text-shine"
           initial="hidden"
           animate="visible"
@@ -150,17 +150,20 @@ export default function Navbar() {
               {char === " " ? "\u00A0" : char}
             </motion.span>
           ))}
-        </motion.h1>
+        </motion.h1> */}
+        <h1 className="text-5xl font-bold tracking-tight sm:text-6xl text-white drop-shadow-2xl [text-shadow:_2px_2px_10px_rgb(0_0_0_/_40%)] bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent animate-text-shine">
+          ייעוץ קמעונאות מתקדם
+        </h1>
 
         <motion.p
-          className="mx-auto mt-6 max-w-2xl text-lg text-gray-50 font-light"
+          className="mx-auto mt-6 max-w-2xl text-30-semibold !text-white font-light"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.8, duration: 0.6 }}>
           פתרונות אסטרטגיים לעסקים קמעונאיים
         </motion.p>
 
-        <motion.div
+        {/* <motion.div
           className="mt-10 flex justify-center gap-x-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -184,8 +187,8 @@ export default function Navbar() {
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
             className="rounded-md border border-white px-6 py-3 text-white transition-colors hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2">
             Learn More
-          </motion.button>
-        </motion.div>
+          </motion.button> */}
+        {/* </motion.div> */}
       </motion.div>
     </div>
   );
