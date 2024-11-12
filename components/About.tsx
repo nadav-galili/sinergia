@@ -87,45 +87,46 @@ const About = () => {
   ];
 
   return (
-    <section className="lightblue_container rounded-lg">
-      <h2 className="text-4xl font-bold text-center text-30-extrabold  mb-12 text-primary-100 underline">
-        אודות
-      </h2>
+    <section className="container mx-auto mt-24 px-4 md:px-16 max-w-5xl">
+      <div className="lightblue_container rounded-lg ">
+        <h2 className="text-4xl font-bold text-center text-30-extrabold  mb-12 text-primary-100 underline">
+          אודות
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-white">
+          <AnimatedStat end={15} title="שנות ניסיון" />
+          <AnimatedStat end={200} title="לקוחות מרוצים" />
+          <AnimatedStat end={500} title="פרוייקטים שהושלמו" />
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-white">
-        <AnimatedStat end={15} title="שנות ניסיון" />
-        <AnimatedStat end={200} title="לקוחות מרוצים" />
-        <AnimatedStat end={500} title="פרוייקטים שהושלמו" />
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {partners.map((partner) => (
-          <div key={partner.id} className="p-6 rounded-lg bg-white shadow-lg">
-            <div className="flex justify-center mb-4">
-              <Avatar className="w-24 h-24">
-                <AvatarImage
-                  src={partner.image}
-                  alt={`${partner.name}'s profile`}
-                />
-                <AvatarFallback>
-                  {partner.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}
-                </AvatarFallback>
-              </Avatar>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {partners.map((partner) => (
+            <div key={partner.id} className="p-6 rounded-lg bg-white shadow-lg">
+              <div className="flex justify-center mb-4">
+                <Avatar className="w-24 h-24">
+                  <AvatarImage
+                    src={partner.image}
+                    alt={`${partner.name}'s profile`}
+                  />
+                  <AvatarFallback>
+                    {partner.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
+                  </AvatarFallback>
+                </Avatar>
+              </div>
+              <h3 className="text-xl font-bold mb-2">{partner.name}</h3>
+              <p className="text-gray-400 font-medium mb-3">{partner.role}</p>
+              <Link
+                href={`/partners/${partner.slug}`}
+                className="flex items-center underline">
+                <p className="text-lg text-primary">קרא עוד</p>
+                <ChevronsLeft className="w-4 h-4 mr-2 text-primary" />
+              </Link>
+              {/* <p className="text-gray-600">{partner.description}</p> */}
             </div>
-            <h3 className="text-xl font-bold mb-2">{partner.name}</h3>
-            <p className="text-gray-400 font-medium mb-3">{partner.role}</p>
-            <Link
-              href={`/partners/${partner.slug}`}
-              className="flex items-center underline">
-              <p className="text-lg text-primary">קרא עוד</p>
-              <ChevronsLeft className="w-4 h-4 mr-2 text-primary" />
-            </Link>
-            {/* <p className="text-gray-600">{partner.description}</p> */}
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
