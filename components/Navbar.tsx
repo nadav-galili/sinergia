@@ -45,7 +45,16 @@ const staggerContainer = {
 //   },
 // };
 
-const images = ["/supermarket.webp", "/header1.jpeg", "/header2.jpeg"];
+const images = [
+  "header/header1.jpeg",
+  "header/header2.jpeg",
+  "header/header3.jpeg",
+  "header/header4.jpeg",
+  "header/header5.jpeg",
+  "header/header6.jpeg",
+  "header/header7.jpeg",
+  "header/header8.jpeg",
+];
 
 export default function Navbar() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
@@ -72,7 +81,7 @@ export default function Navbar() {
           backgroundAttachment: "fixed",
           transition: "background-image 1s ease-in-out",
         }}>
-        <div className="absolute inset-0 bg-black/30 " />
+        <div className="absolute inset-0 bg-black/10 " />
       </motion.div>
 
       {/* Navbar Content */}
@@ -138,20 +147,6 @@ export default function Navbar() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5 }}>
-        {/* <motion.h1
-          className="text-5xl font-bold tracking-tight sm:text-6xl text-white drop-shadow-2xl [text-shadow:_2px_2px_10px_rgb(0_0_0_/_40%)] bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent animate-text-shine"
-          initial="hidden"
-          animate="visible"
-          variants={staggerContainer}>
-          {"ייעוץ קמעונאות מתקדם".split("").map((char, index) => (
-            <motion.span
-              key={index}
-              variants={letterAnimation}
-              className="   text-50-extrabold inline-block transform hover:scale-110 transition-transform duration-200">
-              {char === " " ? "\u00A0" : char}
-            </motion.span>
-          ))}
-        </motion.h1> */}
         <h1 className="text-5xl font-bold tracking-tight sm:text-6xl text-white drop-shadow-2xl [text-shadow:_2px_2px_10px_rgb(0_0_0_/_40%)] bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent animate-text-shine">
           ייעוץ קמעונאות מתקדם
         </h1>
