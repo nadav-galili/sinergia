@@ -46,14 +46,13 @@ const staggerContainer = {
 // };
 
 const images = [
-  "header/header1.jpeg",
-  "header/header2.jpeg",
-  "header/header3.jpeg",
-  "header/header4.jpeg",
-  "header/header5.jpeg",
-  "header/header6.jpeg",
-  "header/header7.jpeg",
-  "header/header8.jpeg",
+  "/header/header3.jpeg",
+  "/header/header4.jpeg",
+  "/header/header5.jpeg",
+  "/header/header6.jpeg",
+  "/header/header7.jpeg",
+  "/header/header8.jpeg",
+  "/header/header9.jpeg",
 ];
 
 export default function Navbar() {

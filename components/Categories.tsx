@@ -31,7 +31,7 @@ const Categories = () => {
     },
 
     {
-      title: "הדרכות ניהוליות ומקצועיות",
+      title: "הדרכות קמעונאיות",
       icon: <Handshake className="w-6 h-6" />,
       subtitles: [
         "תכניות הדרכה מותאמות אישית לצוותי מכירות",
