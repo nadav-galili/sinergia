@@ -78,10 +78,9 @@ export default function Navbar() {
         className="absolute inset-0 h-full bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url('${images[currentImageIndex]}')`,
-          backgroundAttachment: "fixed",
           transition: "background-image 1s ease-in-out",
         }}>
-        <div className="absolute inset-0 bg-black/10 " />
+        <div className="absolute inset-0 bg-black/10 transform-gpu" />
       </motion.div>
 
       {/* Navbar Content */}
