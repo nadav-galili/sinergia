@@ -30,14 +30,14 @@ const ContactPage = () => {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <div className="w-full max-w-md px-4 py-8">
-        <h1 className="text-3xl font-bold mb-8 text-center">Contact Us</h1>
+    <main className="mt-6 flex items-center justify-center">
+      <div className="w-full max-w-md px-4 py-4">
+        <h1 className="heading rounded-lg">צור קשר</h1>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
             <label htmlFor="name" className="block text-sm font-medium">
-              Name
+              שם:
             </label>
             <input
               id="name"
@@ -53,7 +53,7 @@ const ContactPage = () => {
 
           <div className="space-y-2">
             <label htmlFor="email" className="block text-sm font-medium">
-              Email
+              אימייל:
             </label>
             <input
               id="email"
@@ -69,7 +69,7 @@ const ContactPage = () => {
 
           <div className="space-y-2">
             <label htmlFor="subject" className="block text-sm font-medium">
-              Subject
+              נושא:
             </label>
             <input
               id="subject"
@@ -85,9 +85,9 @@ const ContactPage = () => {
 
           <button
             type="submit"
-            className="w-full rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            className="w-full rounded-md bg-primary px-4 py-2 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             aria-label="Submit contact form">
-            Send Message
+            שליחה
           </button>
         </form>
       </div>

@@ -1,10 +1,18 @@
 "use client";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import {
+  ShoppingCart,
+  Handshake,
+  ChartNoAxesCombined,
+  ShoppingBasket,
+} from "lucide-react";
+
 import Image from "next/image";
 interface Category {
   title: string;
   subtitles: string[];
+  icon: React.ReactNode;
   imageUrl: string;
 }
 
@@ -18,11 +26,13 @@ const Categories = () => {
         "פיתוח תוכניות עבודה",
         "ניתוח שוק ומתחרים",
       ],
+      icon: <ShoppingCart className="w-6 h-6" />,
       imageUrl: "/categories/strategic_consultence.jpeg",
     },
 
     {
       title: "הדרכות ניהוליות ומקצועיות",
+      icon: <Handshake className="w-6 h-6" />,
       subtitles: [
         "תכניות הדרכה מותאמות אישית לצוותי מכירות",
         "ניהול",
@@ -33,6 +43,7 @@ const Categories = () => {
     },
     {
       title: "ניתוח דאטה",
+      icon: <ChartNoAxesCombined className="w-6 h-6" />,
       subtitles: [
         "ניתוח מעמיק של נתוני מכירות",
         "מלאי והתנהגות צרכנים",
@@ -43,6 +54,7 @@ const Categories = () => {
     },
     {
       title: "פלנוגרמות",
+      icon: <ShoppingBasket className="w-6 h-6" />,
       subtitles: [
         "תכנון מדויק של סידור וניצול שטחי מדף",
         "תכנון מדויק של סידור וניצול שטחי מדף",
@@ -99,9 +111,14 @@ const Categories = () => {
             />
           </div>
           <div className="p-4">
-            <h3 className="text-2xl text-white bg-primary rounded-lg p-2 font-bold">
-              {category.title}
-            </h3>
+            <div className="heading flex items-center justify-between  rounded-lg">
+              <h3 className="text-2xl text-white p-2 font-bold">
+                {category.title}
+              </h3>
+              {category.icon && (
+                <div className="text-white">{category.icon}</div>
+              )}
+            </div>
             <div className="space-y-2 mt-2">
               {category.subtitles.map((subtitle, index) => (
                 <div key={index} className="flex items-center gap-2">
