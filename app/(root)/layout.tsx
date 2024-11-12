@@ -6,7 +6,6 @@ export default function Layout({
   return (
     <main className="font-rubik">
       <Navbar />
-
       {children}
     </main>
   );

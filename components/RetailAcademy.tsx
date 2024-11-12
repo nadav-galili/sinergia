@@ -55,9 +55,11 @@ const RetailAcademy = () => {
               <h2 className="text-xl font-semibold mb-2">{course.title}</h2>
               <p className="text-gray-600 mb-4">{course.description}</p>
 
-              <Link href={`/academy/${course.slug}`}>
+              <Link
+                href={`/academy/${course.slug}`}
+                className="flex items-center justify-center text-primary">
                 {course.cta}
-                <ChevronsLeft className="mr-2" />
+                <ChevronsLeft className="ml-2" />
               </Link>
             </div>
           </div>
