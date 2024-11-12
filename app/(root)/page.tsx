@@ -1,6 +1,6 @@
 import React from "react";
 import Categories from "@/components/Categories";
-import Parallex from "@/components/Parallex";
+// import Parallex from "@/components/Parallex";
 import RetailAcademy from "@/components/RetailAcademy";
 import OurCustomers from "@/components/OurCustomers";
 import { Mail } from "lucide-react";
