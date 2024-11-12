@@ -99,7 +99,9 @@ const Categories = () => {
             />
           </div>
           <div className="p-4">
-            <h3 className="text-xl text-primary font-bold">{category.title}</h3>
+            <h3 className="text-2xl text-white bg-primary rounded-lg p-2 font-bold">
+              {category.title}
+            </h3>
             <div className="space-y-2 mt-2">
               {category.subtitles.map((subtitle, index) => (
                 <div key={index} className="flex items-center gap-2">
