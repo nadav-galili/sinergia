@@ -81,7 +81,7 @@ const About = () => {
     {
       id: 2,
       name: "עירית גלילי",
-      slug: "irith-galili",
+      slug: "irit-galili",
       role: 'מנכ"ל משותף SINERGIA GROUP',
       description:
         "Award-winning designer with expertise in UI/UX and brand identity.",
