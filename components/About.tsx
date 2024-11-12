@@ -14,11 +14,16 @@ interface StatProps {
 
 const AnimatedStat = ({ end, title }: StatProps) => {
   const [count, setCount] = useState(0);
+  const [mounted, setMounted] = useState(false);
   const { ref, inView } = useInView({ triggerOnce: true });
 
   useEffect(() => {
-    if (inView) {
-      const duration = 2000; // 2 seconds
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (mounted && inView) {
+      const duration = 2000;
       const steps = 60;
       const increment = end / steps;
       let current = 0;
@@ -35,7 +40,16 @@ const AnimatedStat = ({ end, title }: StatProps) => {
 
       return () => clearInterval(timer);
     }
-  }, [inView, end]);
+  }, [inView, end, mounted]);
+
+  if (!mounted) {
+    return (
+      <div ref={ref} className="text-center">
+        <div className="text-4xl font-bold text-white">0+</div>
+        <h3 className="mt-2 text-xl">{title}</h3>
+      </div>
+    );
+  }
 
   return (
     <div ref={ref} className="text-center">
@@ -86,12 +100,20 @@ const About = () => {
     },
   ];
 
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
-    <section className="container mx-auto mt-24 px-4 md:px-16 max-w-5xl">
+    <motion.section
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="container mx-auto mt-24 px-4 md:px-16">
       <div className="lightblue_container rounded-lg ">
-        <h2 className="text-4xl font-bold text-center text-30-extrabold  mb-12 text-primary-100 underline">
-          אודות
-        </h2>
+        <h2 className="heading">אודות</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-white">
           <AnimatedStat end={15} title="שנות ניסיון" />
           <AnimatedStat end={200} title="לקוחות מרוצים" />
@@ -128,7 +150,7 @@ const About = () => {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

@@ -76,21 +76,22 @@ export default function Navbar() {
       </motion.div>
 
       {/* Navbar Content */}
-      <nav className="relative bg-black/95 backdrop-blur-sm shadow-md">
+      <nav className="relative bg-[#455159] shadow-md">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="flex h-20 items-center justify-between">
+          <div className="flex h-20 items-center">
             {/* Logo with smooth fade */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="text-2xl font-bold ml-auto mr-4">
+              className="flex-1">
               <Image
-                src="/logotransparent.png"
+                src="/transparentLogo.png"
                 alt="Sinergia Logo"
-                width={100}
-                height={100}
-                className="h-12 w-auto rounded-lg transform hover:scale-105 transition-transform duration-300"
+                width={200}
+                height={200}
+                priority
+                className=""
               />
             </motion.div>
 
