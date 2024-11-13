@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
 
-export default function Home() {
+export default async function Home() {
   return (
     <div>
       <Categories />
