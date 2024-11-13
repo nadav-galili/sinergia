@@ -20,10 +20,10 @@ export default function Home() {
       <OurCustomers />
 
       <div className="flex flex-col items-center justify-center my-10  py-10 bg-gradient-to-b from-transparent to-gray-50">
-        <Button className=" font-bold text-white px-8 py-6 text-4xl hover:scale-105 transition-transform">
+        <Button className=" font-bold text-white px-10 py-12 text-4xl hover:scale-105 transition-transform">
           <Link href="/contact" className="flex items-center gap-4">
             צרו קשר
-            <Mail className="w-12 h-12" />
+            <Mail className="min-w-20 min-h-10" />
           </Link>
         </Button>
       </div>

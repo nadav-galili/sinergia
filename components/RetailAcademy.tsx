@@ -9,7 +9,7 @@ const RetailAcademy = () => {
     {
       id: 1,
       title: "ניהול קטגוריות מתקדם",
-      description: "קורס מקיף לניהול ׳טגוריות בקמעונאות",
+      description: "קורס מקיף לניהול קטגוריות בקמעונאות",
       slug: "category-management",
       image: "/categories/category_managment.jpeg",
       cta: "למידע נוסף",
@@ -17,7 +17,7 @@ const RetailAcademy = () => {
     {
       id: 2,
       title: "ניהול קטגוריות מתקדם",
-      description: "קורס מקיף לניהול ׳טגוריות בקמעונאות",
+      description: "קורס מקיף לניהול קטגוריות בקמעונאות",
       slug: "category-management",
       image: "/categories/category_managment.jpeg",
       cta: "למידע נוסף",
@@ -25,7 +25,7 @@ const RetailAcademy = () => {
     {
       id: 3,
       title: "ניהול קטגוריות מתקדם",
-      description: "קורס מקיף לניהול ׳טגוריות בקמעונאות",
+      description: "קורס מקיף לניהול קטגוריות בקמעונאות",
       image: "/categories/category_managment.jpeg",
       cta: "למידע נוסף",
       slug: "category-management",
@@ -53,7 +53,9 @@ const RetailAcademy = () => {
             />
             <div className="p-4">
               <h2 className="text-xl font-semibold mb-2">{course.title}</h2>
-              <p className="text-gray-600 mb-4">{course.description}</p>
+              <p className="text-gray-600 mb-4 font-light">
+                {course.description}
+              </p>
 
               <Link
                 href={`/academy/${course.slug}`}

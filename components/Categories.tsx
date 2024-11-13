@@ -123,7 +123,7 @@ const Categories = () => {
               {category.subtitles.map((subtitle, index) => (
                 <div key={index} className="flex items-center gap-2">
                   <Check className="h-4 w-4 text-success" />
-                  <span>{subtitle}</span>
+                  <span className="font-light">{subtitle}</span>
                 </div>
               ))}
             </div>

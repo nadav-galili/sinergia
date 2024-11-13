@@ -85,7 +85,7 @@ export default function Navbar() {
       {/* Navbar Content */}
       <nav className="relative bg-[#455159] shadow-md">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="flex h-20 items-center">
+          <div className="flex h-24 items-center">
             {/* Logo with smooth fade */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -95,8 +95,8 @@ export default function Navbar() {
               <Image
                 src="/transparentLogo.png"
                 alt="Sinergia Logo"
-                width={200}
-                height={200}
+                width={400}
+                height={400}
                 priority
                 className=""
               />
@@ -150,7 +150,7 @@ export default function Navbar() {
         </h1>
 
         <motion.p
-          className="mx-auto mt-6 max-w-2xl text-30-semibold !text-white font-light"
+          className="mx-auto mt-6 max-w-2xl text-30-semibold !text-white !font-light drop-shadow-2xl [text-shadow:_2px_2px_10px_rgb(0_0_0_/_40%)] bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent animate-text-shine rounded-lg px-4 py-2 bg-black/20 backdrop-blur-sm"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.8, duration: 0.6 }}>

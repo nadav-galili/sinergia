@@ -54,7 +54,7 @@ const AnimatedStat = ({ end, title }: StatProps) => {
   return (
     <div ref={ref} className="text-center">
       <motion.div
-        className="text-4xl font-bold text-white"
+        className="text-2xl font-bold text-white"
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.5 }}>
@@ -113,12 +113,19 @@ const About = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="container mx-auto mt-24 px-4 md:px-16">
       <div className="lightblue_container rounded-lg ">
-        <h2 className="heading">אודות</h2>
+        <h2 className="heading ">אודות</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-white">
           <AnimatedStat end={15} title="שנות ניסיון" />
           <AnimatedStat end={200} title="לקוחות מרוצים" />
           <AnimatedStat end={500} title="פרוייקטים שהושלמו" />
         </div>
+
+        <Link
+          href={`/partners/`}
+          className="flex items-center underline text-white mb-3">
+          <p className="text-xl text-white">קרא עוד</p>
+          <ChevronsLeft className="w-8 h-8 mr-2 text-white" />
+        </Link>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {partners.map((partner) => (
@@ -137,14 +144,9 @@ const About = () => {
                   </AvatarFallback>
                 </Avatar>
               </div>
-              <h3 className="text-xl font-bold mb-2">{partner.name}</h3>
-              <p className="text-gray-400 font-medium mb-3">{partner.role}</p>
-              <Link
-                href={`/partners/${partner.slug}`}
-                className="flex items-center underline">
-                <p className="text-lg text-primary">קרא עוד</p>
-                <ChevronsLeft className="w-4 h-4 mr-2 text-primary" />
-              </Link>
+              <h3 className="text-lg font-bold mb-2">{partner.name}</h3>
+              <p className="text-gray-400 font-light mb-3">{partner.role}</p>
+
               {/* <p className="text-gray-600">{partner.description}</p> */}
             </div>
           ))}
