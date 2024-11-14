@@ -116,23 +116,23 @@ export default function Navbar() {
               <motion.div
                 className="bg-white w-6 h-1 mb-1"
                 animate={{
-                  rotate: isMobileMenuOpen ? 45 : 0,
-                  y: isMobileMenuOpen ? 6 : 0,
+                  rotate: isMobileMenuOpen ? 240 : 0,
+                  x: isMobileMenuOpen ? 0 : 0,
                 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.4 }}
               />
               <motion.div
                 className="bg-white w-6 h-1 mb-1"
                 animate={{ opacity: isMobileMenuOpen ? 0 : 1 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.4 }}
               />
               <motion.div
                 className="bg-white w-6 h-1"
                 animate={{
-                  rotate: isMobileMenuOpen ? -45 : 0,
-                  y: isMobileMenuOpen ? -6 : 0,
+                  rotate: isMobileMenuOpen ? -60 : 0,
+                  y: isMobileMenuOpen ? -15 : 0,
                 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.4 }}
               />
             </button>
 
@@ -176,6 +176,7 @@ export default function Navbar() {
             <div className="md:hidden mt-4">
               {navItems.map((item) => (
                 <Link
+                  onClick={handleMobileMenuToggle}
                   key={item.name}
                   href={item.href}
                   className="block px-4 py-2 text-white hover:bg-primary-500">

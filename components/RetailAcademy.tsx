@@ -58,7 +58,7 @@ const RetailAcademy = () => {
               </p>
 
               <Link
-                href={`/academy/${course.slug}`}
+                href={`/academy/${course.id}`}
                 className="flex items-center justify-center text-primary">
                 {course.cta}
                 <ChevronsLeft className="ml-2" />
