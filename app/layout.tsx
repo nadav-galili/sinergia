@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Toaster } from "@/components/ui/toaster";
 
 const rubik = localFont({
   src: [
@@ -65,7 +66,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="he" dir="rtl">
-      <body className={`${rubik.variable} rubik`}>{children}</body>
+      <body className={`${rubik.variable} rubik`}>
+        {children}
+
+        <Toaster />
+      </body>
     </html>
   );
 }
