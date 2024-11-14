@@ -74,8 +74,7 @@ const About = () => {
       role: 'מנכ"ל משותף SINERGIA GROUP',
       description:
         "15+ years of experience in web development and system architecture.",
-      image:
-        "https://images.cdn-files-a.com/uploads/3440451/800_crop_5ef04f8f3ab29_5ef04f7861b01.jpg",
+      image: "/partners/eli.jpg",
     },
 
     {
@@ -85,8 +84,7 @@ const About = () => {
       role: 'מנכ"ל משותף SINERGIA GROUP',
       description:
         "Award-winning designer with expertise in UI/UX and brand identity.",
-      image:
-        "https://images.cdn-files-a.com/uploads/3440451/800_crop_5ef055c5a68b9_5ef0557891268.jpg",
+      image: "/partners/irit.jpg",
     },
     {
       id: 3,
@@ -95,8 +93,7 @@ const About = () => {
       role: 'מנכ"ל משותף SINERGIA GROUP',
       description:
         "Certified PMP with track record of delivering complex projects.",
-      image:
-        "https://images.cdn-files-a.com/uploads/3440451/800_crop_5ef0560bb4a39_5ef055f943d4e.jpg",
+      image: "/partners/arza.jpg",
     },
   ];
 
@@ -113,7 +110,7 @@ const About = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="container mx-auto mt-24 px-4 md:px-16">
       <div className="lightblue_container rounded-lg ">
-        <h2 className="heading ">אודות</h2>
+        <h2 className="heading rounded-lg w-1/3 mx-auto">אודות</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-white">
           <AnimatedStat end={15} title="שנות ניסיון" />
           <AnimatedStat end={200} title="לקוחות מרוצים" />
