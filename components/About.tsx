@@ -143,8 +143,6 @@ const About = () => {
               </div>
               <h3 className="text-lg font-bold mb-2">{partner.name}</h3>
               <p className="text-gray-400 font-light mb-3">{partner.role}</p>
-
-              {/* <p className="text-gray-600">{partner.description}</p> */}
             </div>
           ))}
         </div>

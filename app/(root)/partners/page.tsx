@@ -58,7 +58,7 @@ const Page = () => {
               </div>
             )}
 
-            <h1 className="text-2xl font-bold text-primary text-center">
+            <h1 className="text-2xl font-bold text-primary underline text-center">
               {partner.name}
             </h1>
             <h2 className="text-xl font-bold text-gray-500 text-center">
