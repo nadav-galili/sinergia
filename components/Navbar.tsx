@@ -7,11 +7,10 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const navItems = [
-  { name: "דף הבית", href: "/" },
-  { name: "שירותים", href: "/about" },
-  { name: "אודות", href: "/services" },
-  { name: "פרוייקטים", href: "/contact" },
-  { name: "אקדמיה", href: "/contact" },
+  { name: "שירותים", href: "/services" },
+  { name: "אודות", href: "/partners" },
+  { name: "פרוייקטים", href: "/projects" },
+  { name: "אקדמיה", href: "/academy" },
   { name: "צור קשר", href: "/contact" },
 ];
 
@@ -58,6 +57,7 @@ const images = [
 export default function Navbar() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -66,6 +66,10 @@ export default function Navbar() {
 
     return () => clearInterval(interval);
   }, []);
+
+  const handleMobileMenuToggle = () => {
+    setIsMobileMenuOpen((prev) => !prev);
+  };
 
   return (
     <div className="relative">
@@ -85,22 +89,52 @@ export default function Navbar() {
       {/* Navbar Content */}
       <nav className="relative bg-[#455159] shadow-md">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="flex h-24 items-center">
+          <div className="flex h-24 items-center justify-between">
             {/* Logo with smooth fade */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="flex-1">
-              <Image
-                src="/transparentLogo.png"
-                alt="Sinergia Logo"
-                width={400}
-                height={400}
-                priority
-                className=""
-              />
+              <Link href="/">
+                <Image
+                  src="/transparentLogo.png"
+                  alt="Sinergia Logo"
+                  width={400}
+                  height={400}
+                  priority
+                  className=""
+                />
+              </Link>
             </motion.div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden flex flex-col justify-center items-center w-8 h-12"
+              onClick={handleMobileMenuToggle}
+              aria-label="Toggle mobile menu">
+              <motion.div
+                className="bg-white w-6 h-1 mb-1"
+                animate={{
+                  rotate: isMobileMenuOpen ? 45 : 0,
+                  y: isMobileMenuOpen ? 6 : 0,
+                }}
+                transition={{ duration: 0.3 }}
+              />
+              <motion.div
+                className="bg-white w-6 h-1 mb-1"
+                animate={{ opacity: isMobileMenuOpen ? 0 : 1 }}
+                transition={{ duration: 0.3 }}
+              />
+              <motion.div
+                className="bg-white w-6 h-1"
+                animate={{
+                  rotate: isMobileMenuOpen ? -45 : 0,
+                  y: isMobileMenuOpen ? -6 : 0,
+                }}
+                transition={{ duration: 0.3 }}
+              />
+            </button>
 
             {/* Navigation Items with stagger effect */}
             <motion.div
@@ -136,6 +170,20 @@ export default function Navbar() {
               ))}
             </motion.div>
           </div>
+
+          {/* Mobile Menu */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden mt-4">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="block px-4 py-2 text-white hover:bg-primary-500">
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </nav>
 
@@ -156,33 +204,6 @@ export default function Navbar() {
           transition={{ delay: 1.8, duration: 0.6 }}>
           פתרונות אסטרטגיים לעסקים קמעונאיים
         </motion.p>
-
-        {/* <motion.div
-          className="mt-10 flex justify-center gap-x-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.2, duration: 0.6 }}>
-          <motion.button
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
-            }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            className="rounded-md bg-primary-500 px-6 py-3 text-white transition-colors hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2">
-            Get Started
-          </motion.button>
-          <motion.button
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
-            }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            className="rounded-md border border-white px-6 py-3 text-white transition-colors hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2">
-            Learn More
-          </motion.button> */}
-        {/* </motion.div> */}
       </motion.div>
     </div>
   );
