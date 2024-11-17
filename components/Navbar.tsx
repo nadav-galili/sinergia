@@ -32,18 +32,7 @@ const staggerContainer = {
   },
 };
 
-// const letterAnimation = {
-//   hidden: { opacity: 0, y: 50 },
-//   visible: {
-//     opacity: 1,
-//     y: 0,
-//     transition: {
-//       type: "spring",
-//       stiffness: 120,
-//       damping: 12,
-//     },
-//   },
-// };
+const changingWords = ["עסקים קמעונאיים", "יצרנים", "ייבואנים", "סיטונאים"];
 
 const images = [
   "/header/header3.jpeg",
@@ -59,13 +48,21 @@ export default function Navbar() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 3000); // Change image every 3 seconds
 
-    return () => clearInterval(interval);
+    const wordInterval = setInterval(() => {
+      setCurrentWordIndex((prev) => (prev + 1) % changingWords.length);
+    }, 2000); // Change word every 2 seconds
+
+    return () => {
+      clearInterval(interval);
+      clearInterval(wordInterval);
+    };
   }, []);
 
   const handleMobileMenuToggle = () => {
@@ -206,7 +203,19 @@ export default function Navbar() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.8, duration: 0.6 }}>
-          פתרונות אסטרטגיים לעסקים קמעונאיים
+          פתרונות אסטרטגיים ל{" "}
+          <motion.span
+            key={changingWords[currentWordIndex]}
+            initial={{ opacity: 1, y: -50, position: "absolute" }} // Start above, fully visible
+            animate={{ opacity: 1, y: 0, position: "absolute" }} // Scroll to position
+            exit={{ opacity: 1, y: 50, position: "absolute" }} // Continue scrolling down
+            transition={{
+              duration: 0.3, // Quicker, constant speed
+              ease: "linear", // Linear movement for smooth scroll
+            }}
+            className="text-primary font-bold text-5xl ">
+            {changingWords[currentWordIndex]}
+          </motion.span>
         </motion.p>
       </motion.div>
     </div>
