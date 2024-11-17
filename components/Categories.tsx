@@ -6,11 +6,15 @@ import {
   Handshake,
   ChartNoAxesCombined,
   ShoppingBasket,
+  ChevronsLeft,
 } from "lucide-react";
 
 import Image from "next/image";
+import Link from "next/link";
+
 interface Category {
   title: string;
+  slug: string;
   subtitles: string[];
   icon: React.ReactNode;
   imageUrl: string;
@@ -20,6 +24,7 @@ const Categories = () => {
   const categories: Category[] = [
     {
       title: "ייעוץ אסטרטגי",
+      slug: "strategic-consultence",
       subtitles: [
         "ליווי מקצועי לרשתות",
         "בניית אסטרטגיה עסקית",
@@ -32,6 +37,7 @@ const Categories = () => {
 
     {
       title: "הדרכות קמעונאיות",
+      slug: "sales-training",
       icon: <Handshake className="w-6 h-6" />,
       subtitles: [
         "תכניות הדרכה מותאמות אישית לצוותי מכירות",
@@ -43,6 +49,7 @@ const Categories = () => {
     },
     {
       title: "ניתוח דאטה",
+      slug: "data-analysis",
       icon: <ChartNoAxesCombined className="w-6 h-6" />,
       subtitles: [
         "ניתוח מעמיק של נתוני מכירות",
@@ -54,6 +61,7 @@ const Categories = () => {
     },
     {
       title: "פלנוגרמות",
+      slug: "plannograms",
       icon: <ShoppingBasket className="w-6 h-6" />,
       subtitles: [
         "תכנון מדויק של סידור וניצול שטחי מדף",
@@ -67,70 +75,83 @@ const Categories = () => {
   ];
 
   return (
-    <motion.div
-      className="m-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4"
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={{
-        hidden: {},
-        show: {
-          transition: {
-            staggerChildren: 0.15,
+    <section className="container mx-auto">
+      <Link href="/services" className="block">
+        <h2 className="heading text-center mx-auto rounded-lg mb-4 flex items-center gap-2 justify-center">
+          השירותים שלנו
+          <ChevronsLeft className="size-8 " />
+        </h2>
+      </Link>
+      <motion.div
+        className="m-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={{
+          hidden: {},
+          show: {
+            transition: {
+              staggerChildren: 0.15,
+            },
           },
-        },
-      }}>
-      {categories.map((category) => (
-        <motion.div
-          key={category.title}
-          variants={{
-            hidden: {
-              y: 100,
-              opacity: 0,
-              scale: 0.8,
-            },
-            show: {
-              y: 0,
-              opacity: 1,
-              scale: 1,
-              transition: {
-                type: "spring",
-                bounce: 0.3,
-                duration: 0.8,
+        }}>
+        {categories.map((category) => (
+          <motion.div
+            key={category.title}
+            variants={{
+              hidden: {
+                y: 100,
+                opacity: 0,
+                scale: 0.8,
               },
-            },
-          }}
-          className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-          <div className="relative min-h-[250px]">
-            <Image
-              src={category.imageUrl}
-              alt={category.title}
-              fill
-              sizes="100vw"
-              className="absolute inset-0 object-cover w-full h-full"
-            />
-          </div>
-          <div className="p-4">
-            <div className="heading flex items-center justify-between  rounded-lg">
-              <h3 className="text-2xl text-white p-2 font-bold">
-                {category.title}
-              </h3>
-              {category.icon && (
-                <div className="text-white">{category.icon}</div>
-              )}
+              show: {
+                y: 0,
+                opacity: 1,
+                scale: 1,
+                transition: {
+                  type: "spring",
+                  bounce: 0.3,
+                  duration: 0.8,
+                },
+              },
+            }}
+            className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+            <div className="relative min-h-[250px] overflow-hidden">
+              <Image
+                src={category.imageUrl}
+                alt={category.title}
+                fill
+                sizes="100vw"
+                className="absolute inset-0 object-cover w-full h-full hover:scale-105 transition-all duration-300"
+              />
             </div>
-            <div className="space-y-2 mt-2">
-              {category.subtitles.map((subtitle, index) => (
-                <div key={index} className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-success" />
-                  <span className="font-light">{subtitle}</span>
+            <div className="">
+              <div className="bg-primary flex items-center justify-between p-2">
+                <div className="flex items-center gap-2">
+                  <Link href={`/services/${category.slug}`}>
+                    <h3 className="text-2xl underline text-white font-bold flex items-center">
+                      {category.title}
+                      <ChevronsLeft className="w-6 h-6 ml-2" />
+                    </h3>
+                  </Link>
                 </div>
-              ))}
+                {category.icon && (
+                  <div className="text-white">{category.icon}</div>
+                )}
+              </div>
+              <div className="space-y-2 mt-2">
+                {category.subtitles.map((subtitle, index) => (
+                  <div key={index} className="flex items-center gap-2">
+                    <Check className="h-4 w-4 text-success" />
+                    <span className="font-light">{subtitle}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </motion.div>
-      ))}
-    </motion.div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </section>
   );
 };
 

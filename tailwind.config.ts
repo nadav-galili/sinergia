@@ -34,7 +34,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        rubik: ["var(--font-rubik)"],
+        // rubik: ["var(--font-rubik)"],
+        assistant: ["var(--font-assistant)"],
       },
       borderRadius: {
         lg: "var(--radius)",

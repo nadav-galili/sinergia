@@ -7,10 +7,11 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const navItems = [
-  { name: "שירותים", href: "/services" },
   { name: "אודות", href: "/partners" },
+  { name: "שירותים", href: "/services" },
   { name: "פרוייקטים", href: "/projects" },
   { name: "אקדמיה", href: "/academy" },
+  { name: "בלוג", href: "/blog" },
   { name: "צור קשר", href: "/contact" },
 ];
 
@@ -31,18 +32,7 @@ const staggerContainer = {
   },
 };
 
-// const letterAnimation = {
-//   hidden: { opacity: 0, y: 50 },
-//   visible: {
-//     opacity: 1,
-//     y: 0,
-//     transition: {
-//       type: "spring",
-//       stiffness: 120,
-//       damping: 12,
-//     },
-//   },
-// };
+const changingWords = ["עסקים קמעונאיים", "יצרנים", "ייבואנים", "סיטונאים"];
 
 const images = [
   "/header/header3.jpeg",
@@ -58,13 +48,21 @@ export default function Navbar() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 3000); // Change image every 3 seconds
 
-    return () => clearInterval(interval);
+    const wordInterval = setInterval(() => {
+      setCurrentWordIndex((prev) => (prev + 1) % changingWords.length);
+    }, 2000); // Change word every 2 seconds
+
+    return () => {
+      clearInterval(interval);
+      clearInterval(wordInterval);
+    };
   }, []);
 
   const handleMobileMenuToggle = () => {
@@ -83,7 +81,7 @@ export default function Navbar() {
           backgroundImage: `url('${images[currentImageIndex]}')`,
           transition: "background-image 1s ease-in-out",
         }}>
-        <div className="absolute inset-0 bg-black/10 transform-gpu" />
+        <div className="absolute inset-0 bg-black/20 transform-gpu" />
       </motion.div>
 
       {/* Navbar Content */}
@@ -152,7 +150,9 @@ export default function Navbar() {
                     className="group relative px-2 py-1"
                     onMouseEnter={() => setHoveredItem(item.name)}
                     onMouseLeave={() => setHoveredItem(null)}>
-                    <span className="relative !text-white transition-colors duration-300 hover:text-primary text-30-semibold">
+                    <span
+                      className="relative  
+                     !text-white transition-colors duration-300 hover:text-primary text-35-semibold">
                       {item.name}
                       {hoveredItem === item.name && (
                         <motion.span
@@ -194,16 +194,28 @@ export default function Navbar() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5 }}>
-        <h1 className="text-5xl font-bold tracking-tight sm:text-6xl text-white drop-shadow-2xl [text-shadow:_2px_2px_10px_rgb(0_0_0_/_40%)] bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent animate-text-shine">
+        <h1 className="text-5xl font-bold font-assistant tracking-tight sm:text-6xl text-white drop-shadow-2xl [text-shadow:_2px_2px_10px_rgb(0_0_0_/_40%)] bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent animate-text-shine">
           ייעוץ קמעונאות מתקדם
         </h1>
 
         <motion.p
-          className="mx-auto mt-6 max-w-2xl text-30-semibold !text-white !font-light drop-shadow-2xl [text-shadow:_2px_2px_10px_rgb(0_0_0_/_40%)] bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent animate-text-shine rounded-lg px-4 py-2 bg-black/20 backdrop-blur-sm"
+          className="mx-auto mt-1 max-w-2xl  font-regular text-4xl font-assistant  rounded-lg px-4 py-2 text-white"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.8, duration: 0.6 }}>
-          פתרונות אסטרטגיים לעסקים קמעונאיים
+          פתרונות אסטרטגיים ל{" "}
+          <motion.span
+            key={changingWords[currentWordIndex]}
+            initial={{ opacity: 1, y: -50, position: "absolute" }} // Start above, fully visible
+            animate={{ opacity: 1, y: 0, position: "absolute" }} // Scroll to position
+            exit={{ opacity: 1, y: 50, position: "absolute" }} // Continue scrolling down
+            transition={{
+              duration: 0.3, // Quicker, constant speed
+              ease: "linear", // Linear movement for smooth scroll
+            }}
+            className="text-primary font-bold text-5xl ">
+            {changingWords[currentWordIndex]}
+          </motion.span>
         </motion.p>
       </motion.div>
     </div>

@@ -33,10 +33,12 @@ const RetailAcademy = () => {
   ];
 
   return (
-    <>
-      <h2 className="heading !text-center mb-4 mx-auto rounded-lg">
-        אקדמיה לקמעונאות
-      </h2>
+    <section className="container mx-auto">
+      <Link href="/about" className="block">
+        <h2 className="heading text-center mx-auto rounded-lg mb-4 flex items-center gap-2 justify-center">
+          אקדמיה <ChevronsLeft className="size-8 " />
+        </h2>
+      </Link>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-4 mx-4 md:px-12">
         {courses.map((course) => (
           <div
@@ -67,7 +69,7 @@ const RetailAcademy = () => {
           </div>
         ))}
       </div>
-    </>
+    </section>
   );
 };
 

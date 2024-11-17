@@ -3,55 +3,81 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 
-const rubik = localFont({
+// const assistant = localFont({
+//   src: [
+//     {
+//       path: "./fonts/Assistant-Light.ttf",
+//       weight: "400",
+//       style: "normal",
+//     },
+//     {
+//       path: "./fonts/Assistant-SemiBold.ttf",
+//       weight: "500",
+//       style: "normal",
+//     },
+//     {
+//       path: "./fonts/Assistant-Bold.ttf",
+//       weight: "700",
+//       style: "normal",
+//     },
+//     {
+//       path: "./fonts/Assistant-Regular.ttf",
+//       weight: "400",
+//       style: "normal",
+//     },
+//   ],
+//   variable: "--font-assistant",
+// });
+
+const assistant = localFont({
   src: [
     {
-      path: "./fonts/Rubik-Black.ttf",
+      path: "./fonts/Assistant-ExtraBold.ttf",
       weight: "900",
       style: "normal",
     },
     {
-      path: "./fonts/Rubik-ExtraBold.ttf",
+      path: "./fonts/Assistant-Bold.ttf",
       weight: "800",
       style: "normal",
     },
     {
-      path: "./fonts/Rubik-Bold.ttf",
+      path: "./fonts/Assistant-Bold.ttf",
       weight: "700",
       style: "normal",
     },
     {
-      path: "./fonts/Rubik-SemiBold.ttf",
+      path: "./fonts/Assistant-SemiBold.ttf",
       weight: "600",
       style: "normal",
     },
     {
-      path: "./fonts/Rubik-Medium.ttf",
+      path: "./fonts/Assistant-SemiBold.ttf",
       weight: "500",
       style: "normal",
     },
     {
-      path: "./fonts/Rubik-Regular.ttf",
+      path: "./fonts/Assistant-Regular.ttf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./fonts/Rubik-Light.ttf",
+      path: "./fonts/Assistant-Light.ttf",
       weight: "300",
       style: "normal",
     },
     {
-      path: "./fonts/Rubik-Light.ttf",
+      path: "./fonts/Assistant-Light.ttf",
       weight: "200",
       style: "normal",
     },
     {
-      path: "./fonts/Rubik-Light.ttf",
+      path: "./fonts/Assistant-ExtraLight.ttf",
       weight: "100",
       style: "normal",
     },
   ],
-  variable: "--font-rubik",
+  variable: "--font-assistant",
 });
 
 export const metadata: Metadata = {
@@ -66,9 +92,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="he" dir="rtl">
-      <body className={`${rubik.variable} rubik`}>
+      <body className={`${assistant.variable} assistant`}>
         {children}
-
         <Toaster />
       </body>
     </html>
