@@ -33,9 +33,7 @@ export const contact = defineType({
   ],
   preview: {
     select: {
-      name: "name",
-      email: "email",
-      submittedAt: "submittedAt",
+      title: "name",
     },
   },
 });

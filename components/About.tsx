@@ -54,7 +54,7 @@ const AnimatedStat = ({ end, title }: StatProps) => {
   return (
     <div ref={ref} className="text-center">
       <motion.div
-        className="text-2xl font-bold text-white"
+        className="text-2xl font-bold text-primary"
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.5 }}>
@@ -103,51 +103,52 @@ const About = () => {
   });
 
   return (
-    <motion.section
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="container mx-auto mt-24 px-4 md:px-16">
-      <div className="lightblue_container rounded-lg ">
-        <h2 className="heading rounded-lg w-1/3 mx-auto">אודות</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-white">
-          <AnimatedStat end={15} title="שנות ניסיון" />
-          <AnimatedStat end={200} title="לקוחות מרוצים" />
-          <AnimatedStat end={500} title="פרוייקטים שהושלמו" />
-        </div>
+    <section className="container mx-auto">
+      <Link href="/about" className="block">
+        <h2 className="heading text-center mx-auto rounded-lg  flex items-center gap-2 justify-center">
+          אודות <ChevronsLeft className="size-8 " />
+        </h2>
+      </Link>
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 50 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="container mx-auto  px-4 md:px-16">
+        <div className=" border-2 border-primary  p-4 rounded-lg ">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-primary">
+            <AnimatedStat end={15} title="שנות ניסיון" />
+            <AnimatedStat end={200} title="לקוחות מרוצים" />
+            <AnimatedStat end={500} title="פרוייקטים שהושלמו" />
+          </div>
 
-        <Link
-          href={`/partners/`}
-          className="flex items-center underline text-white mb-3">
-          <p className="text-xl text-white">קרא עוד</p>
-          <ChevronsLeft className="w-8 h-8 mr-2 text-white" />
-        </Link>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {partners.map((partner) => (
-            <div key={partner.id} className="p-6 rounded-lg bg-white shadow-lg">
-              <div className="flex justify-center mb-4">
-                <Avatar className="w-24 h-24">
-                  <AvatarImage
-                    src={partner.image}
-                    alt={`${partner.name}'s profile`}
-                  />
-                  <AvatarFallback>
-                    {partner.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </AvatarFallback>
-                </Avatar>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {partners.map((partner) => (
+              <div
+                key={partner.id}
+                className="p-6 rounded-lg bg-white shadow-lg border border-gray-200">
+                <div className="flex justify-center mb-4">
+                  <Avatar className="w-24 h-24">
+                    <AvatarImage
+                      src={partner.image}
+                      alt={`${partner.name}'s profile`}
+                    />
+                    <AvatarFallback>
+                      {partner.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
+                    </AvatarFallback>
+                  </Avatar>
+                </div>
+                <h3 className="text-lg font-bold mb-2">{partner.name}</h3>
+                <p className="text-gray-400 font-light mb-3">{partner.role}</p>
               </div>
-              <h3 className="text-lg font-bold mb-2">{partner.name}</h3>
-              <p className="text-gray-400 font-light mb-3">{partner.role}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </motion.section>
+      </motion.div>
+    </section>
   );
 };
 

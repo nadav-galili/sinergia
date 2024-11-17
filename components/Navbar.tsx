@@ -7,10 +7,11 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const navItems = [
-  { name: "שירותים", href: "/services" },
   { name: "אודות", href: "/partners" },
+  { name: "שירותים", href: "/services" },
   { name: "פרוייקטים", href: "/projects" },
   { name: "אקדמיה", href: "/academy" },
+  { name: "בלוג", href: "/blog" },
   { name: "צור קשר", href: "/contact" },
 ];
 
@@ -83,7 +84,7 @@ export default function Navbar() {
           backgroundImage: `url('${images[currentImageIndex]}')`,
           transition: "background-image 1s ease-in-out",
         }}>
-        <div className="absolute inset-0 bg-black/10 transform-gpu" />
+        <div className="absolute inset-0 bg-black/20 transform-gpu" />
       </motion.div>
 
       {/* Navbar Content */}
@@ -152,7 +153,9 @@ export default function Navbar() {
                     className="group relative px-2 py-1"
                     onMouseEnter={() => setHoveredItem(item.name)}
                     onMouseLeave={() => setHoveredItem(null)}>
-                    <span className="relative !text-white transition-colors duration-300 hover:text-primary text-30-semibold">
+                    <span
+                      className="relative  
+                     !text-white transition-colors duration-300 hover:text-primary text-35-semibold">
                       {item.name}
                       {hoveredItem === item.name && (
                         <motion.span
@@ -194,12 +197,12 @@ export default function Navbar() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5 }}>
-        <h1 className="text-5xl font-bold tracking-tight sm:text-6xl text-white drop-shadow-2xl [text-shadow:_2px_2px_10px_rgb(0_0_0_/_40%)] bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent animate-text-shine">
+        <h1 className="text-5xl font-bold font-assistant tracking-tight sm:text-6xl text-white drop-shadow-2xl [text-shadow:_2px_2px_10px_rgb(0_0_0_/_40%)] bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent animate-text-shine">
           ייעוץ קמעונאות מתקדם
         </h1>
 
         <motion.p
-          className="mx-auto mt-6 max-w-2xl text-30-semibold !text-white !font-light drop-shadow-2xl [text-shadow:_2px_2px_10px_rgb(0_0_0_/_40%)] bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent animate-text-shine rounded-lg px-4 py-2 bg-black/20 backdrop-blur-sm"
+          className="mx-auto mt-1 max-w-2xl  font-regular text-4xl font-assistant  rounded-lg px-4 py-2 text-white"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.8, duration: 0.6 }}>

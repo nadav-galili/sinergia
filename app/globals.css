@@ -1,5 +1,7 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"); */
-@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -30,6 +32,10 @@
     @apply font-semibold text-[30px] text-black;
   }
 
+  .text-35-semibold {
+    @apply font-semibold text-[35px] text-black;
+  }
+
   .text-26-semibold {
     @apply font-semibold text-[26px] text-black;
   }
@@ -56,11 +62,12 @@
 
   /* .lightblue_container {     @apply w-full bg-primary min-h-[530px] pattern flex justify-center items-center flex-col py-10 px-6;   }  */
   .tag {
-    @apply bg-secondary px-6 py-3 font-rubik font-bold rounded-sm uppercase relative tag-tri;
+    @apply bg-secondary px-6 py-3 font-assistant font-bold rounded-sm uppercase relative tag-tri;
   }
 
   .heading {
-    @apply uppercase  bg-primary px-6 !underline py-3 font-rubik text-[24px] text-white  sm:leading-[64px]  leading-[46px] max-w-3xl text-center my-5;
+    @apply bg-gradient-to-r from-[#43B8BF] via-primary to-[#43B8BF]
+     px-6 !underline py-3  text-[32px] font-semibold text-white sm:leading-[64px] leading-[46px] container text-center my-5;
   }
 
   /* .sub-heading {
@@ -119,7 +126,7 @@
   }
 
   .login {
-    @apply border-[5px] py-4 border-black bg-white text-black relative shadow-100 font-rubik font-medium hover:shadow-none transition-all duration-500 !important;
+    @apply border-[5px] py-4 border-black bg-white text-black relative shadow-100 font-assistant font-medium hover:shadow-none transition-all duration-500 !important;
   }
 
   /* searchform */

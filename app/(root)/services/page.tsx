@@ -1,5 +1,7 @@
+import Categories from "@/components/Categories";
+
 const Page = () => {
-  return <div>page</div>;
+  return <Categories />;
 };
 
 export default Page;
