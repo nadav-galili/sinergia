@@ -199,21 +199,18 @@ export default function Navbar() {
         </h1>
 
         <motion.p
-          className="mx-auto mt-1 max-w-2xl  font-regular text-4xl font-assistant  rounded-lg px-4 py-2 text-white"
+          className="mx-auto mt-1 max-w-2xl font-regular text-4xl font-assistant rounded-lg px-4 py-2 text-white relative"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.8, duration: 0.6 }}>
-          פתרונות אסטרטגיים ל{" "}
+          פתרונות אסטרטגיים ל
           <motion.span
             key={changingWords[currentWordIndex]}
-            initial={{ opacity: 1, y: -50, position: "absolute" }} // Start above, fully visible
-            animate={{ opacity: 1, y: 0, position: "absolute" }} // Scroll to position
-            exit={{ opacity: 1, y: 50, position: "absolute" }} // Continue scrolling down
-            transition={{
-              duration: 0.3, // Quicker, constant speed
-              ease: "linear", // Linear movement for smooth scroll
-            }}
-            className="text-primary font-bold text-5xl ">
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="text-primary font-bold text-5xl block mt-2 sm:inline sm:mt-0 sm:mr-2">
             {changingWords[currentWordIndex]}
           </motion.span>
         </motion.p>
