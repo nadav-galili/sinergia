@@ -1,5 +1,5 @@
-import { Trophy } from "lucide-react";
-
+import { ChevronsLeft, Trophy } from "lucide-react";
+import Link from "next/link";
 type SuccessStory = {
   title: string;
   client: string;
@@ -45,13 +45,15 @@ const successStories: SuccessStory[] = [
 
 const Projects = () => {
   return (
-    <section className="container mx-auto mt-24 px-4 md:px-16">
-      <div className="bg-primary pattern flex justify-center items-center flex-col py-10 mb-10 px-6 rounded-lg ">
-        <h2 className="heading  rounded-lg mx-auto">פרוייקטים לדוגמה</h2>
-        <h3 className="text-20-medium !text-primary bg-white px-6 py-3 rounded-lg underline text-center mb-5 ">
-          ההצלחות שלנו
-        </h3>
-      </div>
+    <section className="container mx-auto">
+      <Link href="/projects" className="block">
+        <h2 className="heading text-center mx-auto rounded-lg  flex items-center gap-2 justify-center">
+          פרוייקטים לדוגמה <ChevronsLeft className="size-8 " />
+        </h2>
+      </Link>
+      <h3 className="text-2xl  !text-primary container mx-auto  py-3 rounded-lg underline text-center mb-5 ">
+        ההצלחות שלנו
+      </h3>
 
       <div className="grid md:grid-cols-3 gap-5">
         {successStories.map((story, index) => (

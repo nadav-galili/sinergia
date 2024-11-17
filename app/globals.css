@@ -67,7 +67,7 @@
 
   .heading {
     @apply bg-gradient-to-r from-[#43B8BF] via-primary to-[#43B8BF]
-     px-6 !underline py-3  text-[32px] font-semibold text-white sm:leading-[64px] leading-[46px] container text-center my-5;
+     px-6 !underline py-3  text-[32px] font-semibold text-white sm:leading-[64px] leading-[46px] max-w-full  text-center my-5;
   }
 
   /* .sub-heading {
