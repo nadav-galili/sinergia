@@ -54,13 +54,13 @@ const AnimatedStat = ({ end, title }: StatProps) => {
   return (
     <div ref={ref} className="text-center">
       <motion.div
-        className="text-2xl font-bold text-primary"
+        className="text-4xl font-bold text-primary"
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.5 }}>
         {count}+
       </motion.div>
-      <h3 className="mt-2 text-xl">{title}</h3>
+      <h3 className="mt-2 text-4xl font-bold">{title}</h3>
     </div>
   );
 };
@@ -126,7 +126,7 @@ const About = () => {
             {partners.map((partner) => (
               <div
                 key={partner.id}
-                className="p-6 rounded-lg bg-white shadow-lg border border-gray-200">
+                className="p-6 rounded-lg bg-white shadow-lg border border-primary">
                 <div className="flex justify-center mb-4">
                   <Avatar className="w-24 h-24">
                     <AvatarImage
