@@ -51,7 +51,7 @@ const Projects = () => {
           פרוייקטים לדוגמה <ChevronsLeft className="size-8 " />
         </h2>
       </Link>
-      <h3 className="text-2xl  !text-primary container mx-auto  py-3 rounded-lg underline text-center mb-5 ">
+      <h3 className="text-2xl  font-semibold !text-primary container mx-auto  py-3 rounded-lg underline text-center mb-5 ">
         ההצלחות שלנו
       </h3>
 

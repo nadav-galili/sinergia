@@ -32,8 +32,6 @@ const staggerContainer = {
   },
 };
 
-const changingWords = ["עסקים קמעונאיים", "יצרנים", "ייבואנים", "סיטונאים"];
-
 const images = [
   "/header/header3.jpeg",
   "/header/header4.jpeg",
@@ -55,13 +53,8 @@ export default function Navbar() {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 3000); // Change image every 3 seconds
 
-    const wordInterval = setInterval(() => {
-      setCurrentWordIndex((prev) => (prev + 1) % changingWords.length);
-    }, 2000); // Change word every 2 seconds
-
     return () => {
       clearInterval(interval);
-      clearInterval(wordInterval);
     };
   }, []);
 
@@ -198,22 +191,10 @@ export default function Navbar() {
           ייעוץ קמעונאות מתקדם
         </h1>
 
-        <motion.p
-          className="mx-auto mt-1 max-w-2xl font-regular text-4xl font-assistant rounded-lg px-4 py-2 text-white relative"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.8, duration: 0.6 }}>
-          פתרונות אסטרטגיים ל
-          <motion.span
-            key={changingWords[currentWordIndex]}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="text-primary font-bold text-5xl block mt-2 sm:inline sm:mt-0 sm:mr-2">
-            {changingWords[currentWordIndex]}
-          </motion.span>
-        </motion.p>
+        <p className="mx-auto mt-1 max-w-2xl font-regular text-4xl font-assistant rounded-lg px-4 py-2 text-white relative">
+          {" "}
+          פתרונות אסטרטגיים לעסקים קמעונאיים
+        </p>
       </motion.div>
     </div>
   );

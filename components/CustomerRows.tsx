@@ -36,21 +36,23 @@ const CustomerRow = ({
           ease: "linear",
         }}
         style={{ width: `${items.length * 208}px` }}>
-        {[...items, ...items].map((customer, idx) => (
-          <div
-            key={`${customer._id}-${idx}`}
-            className="flex-shrink-0 w-[200px] h-20 flex justify-center items-center p-2 
-              bg-white rounded-lg border border-gray-200 shadow-sm 
+        {[...items, ...items, ...items, ...items, ...items, ...items].map(
+          (customer, idx) => (
+            <div
+              key={`${customer._id}-${idx}`}
+              className="flex-shrink-0 w-[130px] h-20 flex justify-center items-center p-2 
+               rounded-lg border border-gray-200 shadow-sm 
               hover:shadow-md hover:border-gray-300 transition-all duration-200">
-            <Image
-              src={`${customer.imageUrl}?w=120&h=120&fit=max`}
-              alt={`${customer.name} logo`}
-              width={80}
-              height={80}
-              className="object-contain w-auto h-full opacity-90 hover:opacity-100 transition-opacity"
-            />
-          </div>
-        ))}
+              <Image
+                src={`${customer.imageUrl}?`}
+                alt={`${customer.name} logo`}
+                width={130}
+                height={20}
+                className="object-contain w-auto h-full "
+              />
+            </div>
+          )
+        )}
       </motion.div>
     </div>
   );
