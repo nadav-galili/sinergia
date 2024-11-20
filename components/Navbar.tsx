@@ -44,18 +44,17 @@ const images = [
 
 export default function Navbar() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(-1);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
   useEffect(() => {
+    setCurrentImageIndex(0);
+
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // Change image every 3 seconds
+    }, 5000);
 
-    return () => {
-      clearInterval(interval);
-    };
+    return () => clearInterval(interval);
   }, []);
 
   const handleMobileMenuToggle = () => {
@@ -71,8 +70,11 @@ export default function Navbar() {
         transition={{ duration: 1.2 }}
         className="absolute inset-0 h-full bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('${images[currentImageIndex]}')`,
-          transition: "background-image 1s ease-in-out",
+          backgroundImage:
+            currentImageIndex >= 0
+              ? `url('${images[currentImageIndex]}')`
+              : undefined,
+          transition: "background-image 3s ease-in-out",
         }}>
         <div className="absolute inset-0 bg-black/20 transform-gpu" />
       </motion.div>

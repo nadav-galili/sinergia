@@ -7,7 +7,9 @@ import {
   ChartNoAxesCombined,
   ShoppingBasket,
   ChevronsLeft,
+  Sparkles,
 } from "lucide-react";
+import Header from "./Header";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -20,7 +22,7 @@ interface Category {
   imageUrl: string;
 }
 
-const Categories = () => {
+const Categories = ({ icon }: { icon: string }) => {
   const categories: Category[] = [
     {
       title: "ייעוץ אסטרטגי",
@@ -48,9 +50,9 @@ const Categories = () => {
       imageUrl: "/categories/category3.jpeg",
     },
     {
-      title: "ניתוח דאטה",
-      slug: "data-analysis",
-      icon: <ChartNoAxesCombined className="w-6 h-6" />,
+      title: "לומדות באנימציה",
+      slug: "animation-training",
+      icon: <Sparkles className="w-6 h-6" />,
       subtitles: [
         "ניתוח מעמיק של נתוני מכירות",
         "מלאי והתנהגות צרכנים",
@@ -77,10 +79,7 @@ const Categories = () => {
   return (
     <section className="container mx-auto">
       <Link href="/services" className="block">
-        <h2 className="heading text-center mx-auto rounded-lg mb-4 flex items-center gap-2 justify-center">
-          השירותים שלנו
-          <ChevronsLeft className="size-8 " />
-        </h2>
+        <Header headerText="השירותים שלנו" icon={icon} />
       </Link>
       <motion.div
         className="m-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4"
