@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import Link from "next/link";
 import { ChevronsLeft } from "lucide-react";
+import Header from "./Header";
 
 interface StatProps {
   end: number;
@@ -65,7 +66,7 @@ const AnimatedStat = ({ end, title }: StatProps) => {
   );
 };
 
-const About = () => {
+const About = ({ icon }: { icon: string }) => {
   const partners = [
     {
       id: 1,
@@ -104,10 +105,8 @@ const About = () => {
 
   return (
     <section className="container mx-auto">
-      <Link href="/about" className="block">
-        <h2 className="heading text-center mx-auto rounded-lg  flex items-center gap-2 justify-center">
-          אודות <ChevronsLeft className="size-8 " />
-        </h2>
+      <Link href="/partners" className="block">
+        <Header headerText="אודות" icon={icon} />
       </Link>
       <motion.div
         ref={ref}
@@ -141,8 +140,10 @@ const About = () => {
                     </AvatarFallback>
                   </Avatar>
                 </div>
-                <h3 className="text-lg font-bold mb-2">{partner.name}</h3>
-                <p className="text-gray-400 font-light mb-3">{partner.role}</p>
+                <h3 className="text-2xl text-primary font-bold mb-2">
+                  {partner.name}
+                </h3>
+                <p className="text-gray-700 font-light mb-3">{partner.role}</p>
               </div>
             ))}
           </div>

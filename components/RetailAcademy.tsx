@@ -3,8 +3,9 @@ import { ChevronsLeft } from "lucide-react";
 import Link from "next/link";
 
 import Image from "next/image";
+import Header from "./Header";
 
-const RetailAcademy = () => {
+const RetailAcademy = ({ icon }: { icon: string }) => {
   const courses = [
     {
       id: 1,
@@ -34,10 +35,8 @@ const RetailAcademy = () => {
 
   return (
     <section className="container mx-auto">
-      <Link href="/about" className="block">
-        <h2 className="heading text-center mx-auto rounded-lg mb-4 flex items-center gap-2 justify-center">
-          אקדמיה <ChevronsLeft className="size-8 " />
-        </h2>
+      <Link href="/academy" className="block">
+        <Header headerText="אקדמיה" icon={icon} />
       </Link>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-4 mx-4 md:px-12">
         {courses.map((course) => (

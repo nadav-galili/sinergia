@@ -1,5 +1,6 @@
 import { ChevronsLeft, Trophy } from "lucide-react";
 import Link from "next/link";
+import Header from "./Header";
 type SuccessStory = {
   title: string;
   client: string;
@@ -43,13 +44,11 @@ const successStories: SuccessStory[] = [
   },
 ];
 
-const Projects = () => {
+const Projects = ({ icon }: { icon: string }) => {
   return (
     <section className="container mx-auto">
       <Link href="/projects" className="block">
-        <h2 className="heading text-center mx-auto rounded-lg  flex items-center gap-2 justify-center">
-          פרוייקטים לדוגמה <ChevronsLeft className="size-8 " />
-        </h2>
+        <Header headerText="פרוייקטים לדוגמה" icon={icon} />
       </Link>
       <h3 className="text-2xl  font-semibold !text-primary container mx-auto  py-3 rounded-lg underline text-center mb-5 ">
         ההצלחות שלנו
