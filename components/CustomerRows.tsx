@@ -67,7 +67,7 @@ export const CustomerRows = ({
     <div className="flex flex-col gap-8 overflow-hidden">
       <CustomerRow items={rows.row1} direction="left" speed={120} />
       <CustomerRow items={rows.row2} direction="right" speed={150} />
-      <CustomerRow items={rows.row3} direction="left" speed={180} />
+      <CustomerRow items={rows.row3} direction="left" speed={120} />
     </div>
   );
 };
