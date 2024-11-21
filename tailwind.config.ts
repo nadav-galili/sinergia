@@ -21,6 +21,7 @@ const config: Config = {
         secondary: "#3DC0CF",
         tertiary: "#159FE6",
         info: "#00C49F",
+        title: "#43B8BF",
         success: "#16ce57",
         black: {
           "100": "#333333",

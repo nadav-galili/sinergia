@@ -14,8 +14,8 @@ export default async function Home() {
     <div>
       <Categories icon="1" />
       {/* <Parallex /> */}
-      <RetailAcademy icon="1" />
       <About icon="1" />
+      <RetailAcademy icon="1" />
       <Projects icon="1" />
       <OurCustomers />
 
