@@ -1,5 +1,6 @@
 import { defineField, defineType } from "sanity";
 import { UserIcon } from "@sanity/icons";
+import { title } from "process";
 
 export const author = defineType({
   name: "author",
@@ -26,7 +27,7 @@ export const author = defineType({
   ],
   preview: {
     select: {
-      name: "name",
+      title: "name",
     },
   },
 });

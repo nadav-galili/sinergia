@@ -5,10 +5,14 @@ export default function Layout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <main className="font-assistant">
-      <Navbar />
-      {children}
-      <Footer />
-    </main>
+    <div className="flex flex-col min-h-screen font-assistant">
+      <header>
+        <Navbar />
+      </header>
+      <main className="flex-grow">{children}</main>
+      <footer>
+        <Footer />
+      </footer>
+    </div>
   );
 }

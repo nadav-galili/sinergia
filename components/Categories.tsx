@@ -39,7 +39,7 @@ const Categories = ({ icon }: { icon: string }) => {
 
     {
       title: "הדרכות קמעונאיות",
-      slug: "sales-training",
+      slug: "retail-training",
       icon: <Handshake className="w-6 h-6" />,
       subtitles: [
         "תכניות הדרכה מותאמות אישית לצוותי מכירות",
@@ -63,7 +63,7 @@ const Categories = ({ icon }: { icon: string }) => {
     },
     {
       title: "פלנוגרמות",
-      slug: "plannograms",
+      slug: "planograms",
       icon: <ShoppingBasket className="w-6 h-6" />,
       subtitles: [
         "תכנון מדויק של סידור וניצול שטחי מדף",

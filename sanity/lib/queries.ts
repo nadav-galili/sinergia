@@ -16,3 +16,21 @@ export const GET_SERVICE_BY_SLUG =
   "imageUrl": image.asset->url,
   blockContent
 }`);
+
+export const GET_POSTS =
+  defineQuery(`*[_type=="post" && defined(slug.current) && !defined($search) || title match $search || category match $search || author->name match $search] | order(_createdAt desc){
+  _id,
+  title,
+  slug,
+  _createdAt,
+  publishedAt,
+  author->{
+    _id,
+    name,
+    image,
+  },
+  views,
+  body,
+  category,
+  "mainImageUrl": mainImage.asset->url,
+}`);
