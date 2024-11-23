@@ -34,3 +34,29 @@ export const GET_POSTS =
   category,
   "mainImageUrl": mainImage.asset->url,
 }`);
+
+export const POST_BY_ID_QUERY = defineQuery(`
+  *[_type=="post" && _id==$id][0]{
+  _id,
+  title,
+  slug,
+  _createdAt,
+    body,
+    publishedAt,
+  author->{
+    _id,
+    name,
+ 
+  },
+  views,
+   category,
+  "imageUrl":mainImage.asset->url,
+   }
+  `);
+
+export const POST_VIEWS_QUERY = defineQuery(
+  `*[_type=="post" && _id==$id][0]{
+   _id,
+   views
+  }`
+);

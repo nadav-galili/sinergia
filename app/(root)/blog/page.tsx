@@ -18,7 +18,7 @@ const BlogPage = async ({
     return (
       <>
         <div className="container mx-auto">
-          <Header headerText="Blog" icon="0" />
+          <Header headerText="בלוג" icon="0" />
         </div>
         <section className="flex justify-center  items-center flex-col py-10 px-6">
           <SearchForm query={query} />
