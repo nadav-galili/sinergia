@@ -35,13 +35,19 @@ export const GET_POSTS =
   "mainImageUrl": mainImage.asset->url,
 }`);
 
-export const POST_BY_ID_QUERY = defineQuery(`
-  *[_type=="post" && _id==$id][0]{
+export const POST_BY_ID_QUERY = defineQuery(
+  `*[_type=="post" && _id==$id][0]{
   _id,
   title,
   slug,
   _createdAt,
-    body,
+  body[]{
+      ...,
+      asset->{
+        _id,
+        url // Fetch the actual URL here
+      }
+    },
     publishedAt,
   author->{
     _id,
@@ -52,7 +58,8 @@ export const POST_BY_ID_QUERY = defineQuery(`
    category,
   "imageUrl":mainImage.asset->url,
    }
-  `);
+  `
+);
 
 export const POST_VIEWS_QUERY = defineQuery(
   `*[_type=="post" && _id==$id][0]{

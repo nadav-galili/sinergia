@@ -1,14 +1,33 @@
 import React, { Suspense } from "react";
-import { client } from "@/sanity/lib/client";
+// import { client } from "@/sanity/lib/client";
 import { POST_BY_ID_QUERY } from "@/sanity/lib/queries";
 import { notFound } from "next/navigation";
 import { formatDate } from "@/lib/utils";
 import Link from "next/link";
-import Image from "next/image";
-import { PortableText } from "@portabletext/react";
-import PostCard, { PostCardType } from "@/components/PostCard";
+// import Image from "next/image";
+import { PortableText, PortableTextComponents } from "@portabletext/react";
+// import PostCard, { PostCardType } from "@/components/PostCard";
 import { sanityFetch } from "@/sanity/lib/live";
 import View from "@/components/View";
+import Header from "@/components/Header";
+
+// Custom component for rendering images
+const CustomImage = ({ value }: { value: { asset: { url: string } } }) => {
+  return (
+    <img
+      src={value.asset.url} // Directly use the URL from the asset
+      alt={value.asset.url || "Post Image"}
+      className="w-full h-auto rounded-xl"
+    />
+  );
+};
+
+// Define the components for PortableText
+const components: PortableTextComponents = {
+  types: {
+    image: CustomImage,
+  },
+};
 
 const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
@@ -23,11 +42,9 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   }
 
   return (
-    <>
-      <section className="blue_container pattern !min-h-[230[x]]">
-        <p className="tag">{formatDate(post._createdAt)}</p>
-        <h1 className="heading">{post.title}</h1>
-      </section>
+    <section className="container mx-auto">
+      <Header headerText={post.title} icon="0" />
+      <p className="tag  mx-auto">{formatDate(post._createdAt)}</p>
 
       <section className="section_container">
         <img
@@ -46,8 +63,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
             </Link>
             <p className="category-tag">{post.category}</p>
           </div>
-          <h3 className="text-30-bold">{post.title}</h3>
-          <PortableText value={post.body} />
+          <PortableText value={post.body} components={components} />
         </div>
         <hr className="divider" />
         <Suspense fallback={<div>Loading...</div>}>
@@ -64,7 +80,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
           </div>
         )} */}
       </section>
-    </>
+    </section>
   );
 };
 
