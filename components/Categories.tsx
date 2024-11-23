@@ -47,7 +47,7 @@ const Categories = ({ icon }: { icon: string }) => {
         "תכניות הדרכה מותאמות אישית לצוותי מכירות",
         "ניהול",
       ],
-      imageUrl: "/categories/category3.jpeg",
+      imageUrl: "/categories/category1.jpeg",
     },
     {
       title: "לומדות באנימציה",
