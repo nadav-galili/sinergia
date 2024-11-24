@@ -67,3 +67,9 @@ export const POST_VIEWS_QUERY = defineQuery(
    views
   }`
 );
+
+export const CHECK_IF_EMAIL_EXISTS = defineQuery(
+  `*[_type=="blogSignIn" && email==$email][0]{
+  _id
+  }`
+);
