@@ -3,6 +3,7 @@ import { GET_POSTS } from "@/sanity/lib/queries";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import Header from "@/components/Header";
 import PostCard, { PostCardType } from "@/components/PostCard";
+import BlogSignIn from "@/components/BlogSignIn";
 const BlogPage = async ({
   searchParams,
 }: {
@@ -13,13 +14,13 @@ const BlogPage = async ({
 
   try {
     const posts = await sanityFetch({ query: GET_POSTS, params });
-    console.log("🚀 ~ posts:", posts);
 
     return (
       <>
         <div className="container mx-auto">
           <Header headerText="בלוג" icon="0" />
         </div>
+        <BlogSignIn />
         <section className="flex justify-center  items-center flex-col py-10 px-6">
           <SearchForm query={query} />
         </section>

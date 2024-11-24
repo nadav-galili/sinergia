@@ -68,6 +68,16 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type BlogSignIn = {
+  _id: string;
+  _type: "blogSignIn";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  email?: string;
+  submittedAt?: string;
+};
+
 export type Post = {
   _id: string;
   _type: "post";
@@ -302,5 +312,5 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Post | BlockContent | Ourservices | Slug | Contact | Ourcustomer | Author | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | BlogSignIn | Post | BlockContent | Ourservices | Slug | Contact | Ourcustomer | Author | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
