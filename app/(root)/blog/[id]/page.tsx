@@ -22,10 +22,38 @@ const CustomImage = ({ value }: { value: { asset: { url: string } } }) => {
   );
 };
 
-// Define the components for PortableText
+// Custom component for rendering links
+const CustomLink = ({
+  value,
+  children,
+}: {
+  value: { href: string; newTab?: boolean };
+  children: React.ReactNode;
+}) => {
+  return (
+    <a
+      href={value.href}
+      className="text-primary underline hover:text-blue-600" // Add more styling as needed
+      target={value.newTab ? "_blank" : "_self"}
+      rel={value.newTab ? "noopener noreferrer" : undefined}>
+      {children}
+    </a>
+  );
+};
+
 const components: PortableTextComponents = {
   types: {
     image: CustomImage,
+  },
+  marks: {
+    link: ({ value, children, ...props }) => (
+      <CustomLink value={value} {...props}>
+        {children}
+      </CustomLink>
+    ),
+  },
+  block: {
+    center: ({ children }) => <div className="text-center">{children}</div>,
   },
 };
 
