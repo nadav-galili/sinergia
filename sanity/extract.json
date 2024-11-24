@@ -559,6 +559,10 @@
                         {
                           "type": "string",
                           "value": "blockquote"
+                        },
+                        {
+                          "type": "string",
+                          "value": "center"
                         }
                       ]
                     },
@@ -588,6 +592,13 @@
                             "type": "objectAttribute",
                             "value": {
                               "type": "string"
+                            },
+                            "optional": true
+                          },
+                          "newTab": {
+                            "type": "objectAttribute",
+                            "value": {
+                              "type": "boolean"
                             },
                             "optional": true
                           },
@@ -824,6 +835,10 @@
                     {
                       "type": "string",
                       "value": "blockquote"
+                    },
+                    {
+                      "type": "string",
+                      "value": "center"
                     }
                   ]
                 },
@@ -853,6 +868,13 @@
                         "type": "objectAttribute",
                         "value": {
                           "type": "string"
+                        },
+                        "optional": true
+                      },
+                      "newTab": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "boolean"
                         },
                         "optional": true
                       },

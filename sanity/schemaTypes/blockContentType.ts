@@ -30,6 +30,7 @@ export const blockContentType = defineType({
         { title: "H3", value: "h3" },
         { title: "H4", value: "h4" },
         { title: "Quote", value: "blockquote" },
+        { title: "Centered", value: "center" },
       ],
       lists: [{ title: "Bullet", value: "bullet" }],
       // Marks let you mark up inline text in the Portable Text Editor
@@ -43,14 +44,20 @@ export const blockContentType = defineType({
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
           {
-            title: "URL",
             name: "link",
             type: "object",
+            title: "Link",
             fields: [
               {
-                title: "URL",
                 name: "href",
                 type: "url",
+                title: "URL",
+              },
+              {
+                name: "newTab",
+                type: "boolean",
+                title: "Open in new tab",
+                initialValue: false,
               },
             ],
           },

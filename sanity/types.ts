@@ -101,10 +101,11 @@ export type Post = {
       _type: "span";
       _key: string;
     }>;
-    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote" | "center";
     listItem?: "bullet";
     markDefs?: Array<{
       href?: string;
+      newTab?: boolean;
       _type: "link";
       _key: string;
     }>;
@@ -135,10 +136,11 @@ export type BlockContent = Array<{
     _type: "span";
     _key: string;
   }>;
-  style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+  style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote" | "center";
   listItem?: "bullet";
   markDefs?: Array<{
     href?: string;
+    newTab?: boolean;
     _type: "link";
     _key: string;
   }>;
