@@ -28,13 +28,14 @@ const Categories = ({ icon }: { icon: string }) => {
       title: "ייעוץ אסטרטגי",
       slug: "strategic-consultence",
       subtitles: [
-        "ליווי מקצועי לרשתות",
-        "בניית אסטרטגיה עסקית",
+        "ליווי מקצועי לרשתות וספקים",
+        "אסטרטגיה עסקית  קמעונאית",
         "פיתוח תוכניות עבודה",
         "ניתוח שוק ומתחרים",
+        "הטמעת שינויים אסטרטגיים וטכנולוגיים",
       ],
       icon: <ShoppingCart className="w-6 h-6" />,
-      imageUrl: "/categories/strategic_consultence.jpeg",
+      imageUrl: "/ourServices/services1.jpeg",
     },
 
     {
@@ -42,36 +43,36 @@ const Categories = ({ icon }: { icon: string }) => {
       slug: "retail-training",
       icon: <Handshake className="w-6 h-6" />,
       subtitles: [
-        "תכניות הדרכה מותאמות אישית לצוותי מכירות",
-        "ניהול",
-        "תכניות הדרכה מותאמות אישית לצוותי מכירות",
-        "ניהול",
+        "תכניות הדרכה למנהלים במטה ובשטח",
+        "תוכניות הדרכה לעתודה ניהולית",
+        "תוכניות הדרכה למטה סחר ומנהלי קטגוריה",
+        "פיתוח תהליכי הדרכה  למערכי המכירות",
       ],
-      imageUrl: "/categories/category1.jpeg",
+      imageUrl: "/ourServices/services2.jpeg",
     },
     {
       title: "לומדות באנימציה",
       slug: "animation-training",
       icon: <Sparkles className="w-6 h-6" />,
       subtitles: [
-        "ניתוח מעמיק של נתוני מכירות",
-        "מלאי והתנהגות צרכנים",
-        "ניתוח מעמיק של נתוני מכירות",
-        "מלאי והתנהגות צרכנים",
+        "לומדות לדרגי התפעול בחנויות",
+        "לומדות לתהליכי מכירה ושירות",
+        "לומדות לרגולציה בתחום הקמעונאות",
+        "לומדות  לתהליכי השקה/מבצע ייחודי ועוד",
       ],
-      imageUrl: "/categories/data_analysis.jpeg",
+      imageUrl: "/ourServices/services3.jpeg",
     },
     {
       title: "פלנוגרמות",
       slug: "planograms",
       icon: <ShoppingBasket className="w-6 h-6" />,
       subtitles: [
-        "תכנון מדויק של סידור וניצול שטחי מדף",
-        "תכנון מדויק של סידור וניצול שטחי מדף",
-        "תכנון מדויק של סידור וניצול שטחי מדף",
-        "תכנון מדויק של סידור וניצול שטחי מדף",
+        "אנליטיקס ופיתוח פלנוגרמות",
+        "שיתוף פעולה עם חברת ARIG",
+        "אופטימיזציה של שטחי מדף",
+        "ביסוס על עץ החלטות קניה",
       ],
-      imageUrl: "/categories/category4.jpeg",
+      imageUrl: "/ourServices/services4.jpeg",
     },
     // Add more categories as needed
   ];
@@ -140,7 +141,7 @@ const Categories = ({ icon }: { icon: string }) => {
             </div>
             <div className="space-y-2 mt-2">
               {category.subtitles.map((subtitle, index) => (
-                <div key={index} className="flex items-center gap-2">
+                <div key={index} className="flex items-center gap-2 px-4 py-1">
                   <Check className="h-4 w-4 text-success" />
                   <span className="font-light">{subtitle}</span>
                 </div>
