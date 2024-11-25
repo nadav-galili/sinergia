@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     // Configure the email to send
     const mailOptions = {
       from: "nadavg1000@gmail.com",
-      to: "nadavg@mobile-brain.net",
+      to: "irit@sinergia-group.co.il",
       subject: "New Contact Submission",
       text: `You have a new contact submission:
       - Name: ${name}
