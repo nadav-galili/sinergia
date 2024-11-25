@@ -95,60 +95,64 @@ const Categories = ({ icon }: { icon: string }) => {
             },
           },
         }}>
-        {categories.map((category) => (
-          <motion.div
-            key={category.title}
-            variants={{
-              hidden: {
-                y: 100,
-                opacity: 0,
-                scale: 0.8,
-              },
-              show: {
-                y: 0,
-                opacity: 1,
-                scale: 1,
-                transition: {
-                  type: "spring",
-                  bounce: 0.3,
-                  duration: 0.8,
+        {categories.map((category) => {
+          return (
+            <motion.div
+              key={category.title}
+              variants={{
+                hidden: {
+                  y: 100,
+                  opacity: 0,
+                  scale: 0.8,
                 },
-              },
-            }}
-            className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-            <div className="relative min-h-[250px] overflow-hidden">
-              <Image
-                src={category.imageUrl}
-                alt={category.title}
-                fill
-                sizes="100vw"
-                className="absolute inset-0 object-cover w-full h-full hover:scale-105 transition-all duration-300"
-              />
-            </div>
-
-            <div className="bg-info flex items-center justify-between p-2">
-              <div className="flex items-center gap-2">
-                <Link href={`/services/${category.slug}`}>
-                  <h3 className="text-2xl underline text-white font-bold flex items-center">
-                    {category.title}
-                    <ChevronsLeft className="w-6 h-6 ml-2" />
-                  </h3>
-                </Link>
+                show: {
+                  y: 0,
+                  opacity: 1,
+                  scale: 1,
+                  transition: {
+                    type: "spring",
+                    bounce: 0.3,
+                    duration: 0.8,
+                  },
+                },
+              }}
+              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+              <div className="relative min-h-[250px] overflow-hidden">
+                <Image
+                  src={category.imageUrl}
+                  alt={category.title}
+                  fill
+                  sizes="100vw"
+                  className="absolute inset-0 object-cover w-full h-full hover:scale-105 transition-all duration-300"
+                />
               </div>
-              {category.icon && (
-                <div className="text-white">{category.icon}</div>
-              )}
-            </div>
-            <div className="space-y-2 mt-2">
-              {category.subtitles.map((subtitle, index) => (
-                <div key={index} className="flex items-center gap-2 px-4 py-1">
-                  <Check className="h-4 w-4 text-success" />
-                  <span className="font-light text-lg">{subtitle}</span>
+
+              <div className="bg-info flex items-center justify-between p-2">
+                <div className="flex items-center gap-2">
+                  <Link href={`/services/${category.slug}`}>
+                    <h3 className="text-2xl underline text-white font-bold flex items-center">
+                      {category.title}
+                      <ChevronsLeft className="w-6 h-6 ml-2" />
+                    </h3>
+                  </Link>
                 </div>
-              ))}
-            </div>
-          </motion.div>
-        ))}
+                {category.icon && (
+                  <div className="text-white">{category.icon}</div>
+                )}
+              </div>
+              <div className="space-y-2 mt-2">
+                {category.subtitles.map((subtitle, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center gap-2 px-4 py-1">
+                    <Check className="h-4 w-4 text-success" />
+                    <span className="font-semibold text-lg">{subtitle}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          );
+        })}
       </motion.div>
     </section>
   );
