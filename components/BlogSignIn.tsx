@@ -75,10 +75,10 @@ const BlogSignIn = () => {
 
   return (
     <form action={formAction} className="w-full max-w-3xl mx-auto">
-      <div className="flex gap-4 items-end">
-        <div className="flex-1">
+      <div className="flex flex-col md:flex-row gap-4 items-center md:items-end">
+        <div className="w-2/3 md:w-full">
           <label htmlFor="email" className="startup-form_label">
-            הירשם לבלוג
+            רישום לקבלת עדכון על פרסום פוסט חדש{" "}
           </label>
           <Input
             type="email"
@@ -92,7 +92,7 @@ const BlogSignIn = () => {
         </div>
         <Button
           type="submit"
-          className="blog-form_btn text-white"
+          className="blog-form_btn text-white w-1/3 sm:w-full md:w-1/3"
           disabled={isPending}>
           {isPending ? "נרשם..." : "הירשם"}
           <Send className="size-6 mr-2" />
