@@ -22,7 +22,7 @@ export async function POST(request: Request) {
       from: "nadavg1000@gmail.com",
       to: "irit@sinergia-group.co.il",
       subject: "New Contact Submission",
-      text: `You have a new contact submission:
+      text: `You have a new contact submission from sinergia-group.co.il:
       - Name: ${name}
       - Email: ${email}
       - Message: ${message}`,
@@ -30,8 +30,6 @@ export async function POST(request: Request) {
 
     // Send the email
     const info = await transporter.sendMail(mailOptions);
-
-    console.log("Email sent: ", info.response);
 
     return NextResponse.json({ message: "Email sent successfully!" });
   } catch (error) {
