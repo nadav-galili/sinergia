@@ -78,12 +78,12 @@ const Categories = ({ icon }: { icon: string }) => {
   ];
 
   return (
-    <section className="container mx-auto">
+    <section className="container mx-auto  bg-primary1 rounded-lg px-4    hero-pattern1">
       <Link href="/services" className="block">
         <Header headerText="השירותים שלנו" icon={icon} />
       </Link>
       <motion.div
-        className="m-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4"
+        className="m-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
@@ -116,8 +116,9 @@ const Categories = ({ icon }: { icon: string }) => {
                   },
                 },
               }}
-              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-              <div className="relative min-h-[250px] overflow-hidden">
+              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 border-2
+              border-primary">
+              <div className="relative min-h-[180px] overflow-hidden">
                 <Image
                   src={category.imageUrl}
                   alt={category.title}
@@ -127,10 +128,10 @@ const Categories = ({ icon }: { icon: string }) => {
                 />
               </div>
 
-              <div className="bg-info flex items-center justify-between p-2">
-                <div className="flex items-center gap-2">
+              <div className="bg-black flex items-center justify-between p-2">
+                <div className="flex items-center gap-2 ">
                   <Link href={`/services/${category.slug}`}>
-                    <h3 className="text-2xl underline text-white font-bold flex items-center">
+                    <h3 className="text-2xl  text-white font-bold flex items-center">
                       {category.title}
                       <ChevronsLeft className="w-6 h-6 ml-2" />
                     </h3>

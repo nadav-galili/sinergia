@@ -17,9 +17,9 @@ const OurCustomers = async () => {
   };
 
   return (
-    <section className="w-full py-10">
+    <section className="w-full ">
       <div className="container mx-auto">
-        <h2 className="heading text-center mx-auto rounded-lg flex items-center gap-2 justify-center mb-12">
+        <h2 className="heading text-center mx-auto rounded-lg flex items-center gap-2 justify-center ">
           בין לקוחותינו
         </h2>
         <CustomerRows rows={rows} />

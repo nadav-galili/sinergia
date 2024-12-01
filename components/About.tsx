@@ -115,7 +115,7 @@ const About = ({ icon }: { icon: string }) => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="container mx-auto  px-4 md:px-16">
         <div className=" border-2 border-primary  p-4 rounded-lg ">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-primary">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-white">
             <AnimatedStat end={15} title="שנות ניסיון" />
             <AnimatedStat end={200} title="לקוחות מרוצים" />
             <AnimatedStat end={500} title="פרוייקטים שהושלמו" />
@@ -125,7 +125,7 @@ const About = ({ icon }: { icon: string }) => {
             {partners.map((partner) => (
               <div
                 key={partner.id}
-                className="p-6 rounded-lg bg-white shadow-lg border border-primary">
+                className="p-6 rounded-lg partners-bg  shadow-lg border border-primary">
                 <div className="flex justify-center mb-4">
                   <Avatar className="w-24 h-24">
                     <AvatarImage
@@ -140,10 +140,12 @@ const About = ({ icon }: { icon: string }) => {
                     </AvatarFallback>
                   </Avatar>
                 </div>
-                <h3 className="text-2xl text-primary font-bold mb-2">
+                <h3 className="text-2xl text-white font-bold mb-2">
                   {partner.name}
                 </h3>
-                <p className="text-gray-700 font-light mb-3">{partner.role}</p>
+                <p className="text-gray-700 font-semibold mb-3">
+                  {partner.role}
+                </p>
               </div>
             ))}
           </div>

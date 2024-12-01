@@ -40,7 +40,7 @@ const Page = () => {
         {partners.map((partner) => (
           <div
             key={partner.slug}
-            className="bg-white rounded-lg shadow-lg p-8 space-y-6">
+            className="partners-bg bg-white rounded-lg shadow-lg p-8 space-y-6">
             {partner.image && (
               <div className="flex justify-center mb-8">
                 <Avatar className="w-32 h-32">
@@ -58,10 +58,10 @@ const Page = () => {
               </div>
             )}
 
-            <h1 className="text-2xl font-bold text-primary underline text-center">
+            <h1 className="text-2xl font-bold text-white underline text-center">
               {partner.name}
             </h1>
-            <h2 className="text-xl font-bold text-gray-500 text-center">
+            <h2 className="text-xl font-bold text-gray-700 text-center">
               {partner.title}
             </h2>
 

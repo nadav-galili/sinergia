@@ -42,7 +42,7 @@ const CustomerRow = ({
               key={`${customer._id}-${idx}`}
               className="flex-shrink-0 w-[130px] h-20 flex justify-center items-center p-2 
                rounded-lg border border-gray-200 shadow-sm 
-              hover:shadow-md hover:border-gray-300 transition-all duration-200">
+              hover:shadow-md hover:border-gray-300 transition-all duration-200  bg-white">
               <Image
                 src={`${customer.imageUrl}?`}
                 alt={`${customer.name} logo`}
@@ -64,7 +64,7 @@ export const CustomerRows = ({
   rows: { row1: Customer[]; row2: Customer[]; row3: Customer[] };
 }) => {
   return (
-    <div className="flex flex-col gap-8 overflow-hidden">
+    <div className="flex flex-col gap-8 overflow-hidden px-4 py-2  bg-black-200 rounded-lg">
       <CustomerRow items={rows.row1} direction="left" speed={120} />
       <CustomerRow items={rows.row2} direction="right" speed={150} />
       <CustomerRow items={rows.row3} direction="left" speed={120} />

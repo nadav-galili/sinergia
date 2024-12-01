@@ -133,7 +133,7 @@ export default function Navbar() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}>
       {/* Background Images with Enhanced Crossfade */}
-      <div className="absolute inset-0 h-full overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden">
         {isClient && imagesLoaded && (
           <AnimatePresence mode="sync">
             {/* Current Image */}
@@ -162,6 +162,7 @@ export default function Navbar() {
                   fill
                   priority
                   className="object-cover"
+                  sizes="100vw"
                 />
                 <motion.div
                   className="absolute inset-0 bg-black/20"
@@ -266,11 +267,11 @@ export default function Navbar() {
                       className="group relative px-2 py-1"
                       onMouseEnter={() => setHoveredItem(item.name)}
                       onMouseLeave={() => setHoveredItem(null)}>
-                      <span className="relative !text-white transition-colors duration-300 hover:text-primary text-35-semibold">
+                      <span className="relative text-white transition-colors duration-300 text-2xl hover:text-primary">
                         {item.name}
                         {hoveredItem === item.name && (
                           <motion.span
-                            className="absolute -bottom-1 left-0 h-0.5 w-full bg-primary-300"
+                            className="absolute -bottom-1 left-0 h-0.5 w-full bg-primary-100"
                             layoutId="underline"
                             initial={{ scaleX: 0 }}
                             animate={{ scaleX: 1 }}
@@ -315,11 +316,13 @@ export default function Navbar() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5 }}>
-        <h1 className="text-5xl font-bold font-assistant tracking-tight sm:text-6xl text-white drop-shadow-2xl [text-shadow:_2px_2px_10px_rgb(0_0_0_/_40%)] bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent animate-text-shine">
+        <h1
+          className="text-5xl font-bold 
+  mx-auto mt-1 bg-black/30 max-w-[33rem] font-regular font-assistant rounded-lg  py-2 text-white relative">
           ייעוץ קמעונאות מתקדם
         </h1>
 
-        <p className="mx-auto mt-1 max-w-2xl font-regular text-4xl font-assistant rounded-lg px-4 py-2 text-white relative">
+        <p className="mx-auto mt-1 bg-black/30 max-w-[33rem] font-regular text-4xl font-assistant rounded-lg  py-2 text-white relative">
           פתרונות אסטרטגיים לעסקים קמעונאיים
         </p>
       </motion.div>
