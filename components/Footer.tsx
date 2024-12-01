@@ -10,14 +10,14 @@ const Footer = () => {
           <Image
             src="/transparentLogo.png"
             alt="Sinergia Logo"
-            width={250}
-            height={250}
+            width={350}
+            height={350}
             priority
             className="mb-4 md:mb-0"
           />
         </Link>
         <p className="text-2xl font-semibold text-center md:text-left">
-          לפרטים נוספים: ארזה בן עמי ארמה
+          לפרטים : ארזה בן עמי ארמה
         </p>
         <p className="text-2xl flex items-center gap-2 p-5">
           <Link

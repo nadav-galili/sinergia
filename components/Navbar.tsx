@@ -316,7 +316,9 @@ export default function Navbar() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5 }}>
-        <h1 className="text-5xl font-bold font-assistant tracking-tight sm:text-6xl text-white drop-shadow-2xl [text-shadow:_2px_2px_10px_rgb(0_0_0_/_40%)] bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent animate-text-shine">
+        <h1
+          className="text-5xl font-bold 
+  mx-auto mt-1 bg-black/30 max-w-[33rem] font-regular font-assistant rounded-lg  py-2 text-white relative">
           ייעוץ קמעונאות מתקדם
         </h1>
 
