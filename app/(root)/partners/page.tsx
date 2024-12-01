@@ -58,10 +58,10 @@ const Page = () => {
               </div>
             )}
 
-            <h1 className="text-2xl font-bold text-primary underline text-center">
+            <h1 className="text-2xl font-bold text-white underline text-center">
               {partner.name}
             </h1>
-            <h2 className="text-xl font-bold text-gray-500 text-center">
+            <h2 className="text-xl font-bold text-gray-700 text-center">
               {partner.title}
             </h2>
 

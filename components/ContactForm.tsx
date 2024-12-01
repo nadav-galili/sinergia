@@ -65,8 +65,10 @@ const ContactForm = () => {
   });
 
   return (
-    <form action={formAction} className="startup-form">
-      <h2 className="heading rounded-lg">צור קשר</h2>
+    <form action={formAction} className="startup-form rounded-lg px-4 py-8">
+      <h2 className="px-6  py-3  text-[32px] font-bold text-primary sm:leading-[64px] leading-[46px] max-w-full ">
+        צור קשר
+      </h2>
       <div>
         <label htmlFor="name" className="startup-form_label">
           שם:
