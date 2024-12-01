@@ -117,7 +117,7 @@ const Categories = ({ icon }: { icon: string }) => {
                 },
               }}
               className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-              <div className="relative min-h-[250px] overflow-hidden">
+              <div className="relative min-h-[180px] overflow-hidden">
                 <Image
                   src={category.imageUrl}
                   alt={category.title}
@@ -127,10 +127,10 @@ const Categories = ({ icon }: { icon: string }) => {
                 />
               </div>
 
-              <div className="bg-info flex items-center justify-between p-2">
+              <div className="bg-primary flex items-center justify-between p-2">
                 <div className="flex items-center gap-2">
                   <Link href={`/services/${category.slug}`}>
-                    <h3 className="text-2xl underline text-white font-bold flex items-center">
+                    <h3 className="text-2xl  text-white font-bold flex items-center">
                       {category.title}
                       <ChevronsLeft className="w-6 h-6 ml-2" />
                     </h3>

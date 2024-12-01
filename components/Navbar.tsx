@@ -266,7 +266,7 @@ export default function Navbar() {
                       className="group relative px-2 py-1"
                       onMouseEnter={() => setHoveredItem(item.name)}
                       onMouseLeave={() => setHoveredItem(null)}>
-                      <span className="relative !text-white transition-colors duration-300 hover:text-primary text-35-semibold">
+                      <span className="relative !text-white transition-colors duration-300 hover:text-primary text-2xl">
                         {item.name}
                         {hoveredItem === item.name && (
                           <motion.span
@@ -319,7 +319,7 @@ export default function Navbar() {
           ייעוץ קמעונאות מתקדם
         </h1>
 
-        <p className="mx-auto mt-1 max-w-2xl font-regular text-4xl font-assistant rounded-lg px-4 py-2 text-white relative">
+        <p className="mx-auto mt-1 bg-black/30 max-w-[33rem] font-regular text-4xl font-assistant rounded-lg  py-2 text-white relative">
           פתרונות אסטרטגיים לעסקים קמעונאיים
         </p>
       </motion.div>
