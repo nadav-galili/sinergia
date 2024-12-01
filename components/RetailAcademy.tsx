@@ -31,6 +31,14 @@ const RetailAcademy = ({ icon }: { icon: string }) => {
       cta: "למידע נוסף",
       slug: "category-management",
     },
+    {
+      id: 4,
+      title: "ניהול קטגוריות מתקדם",
+      description: "קורס מקיף לניהול קטגוריות בקמעונאות",
+      image: "/academy/academy1.jpeg",
+      cta: "למידע נוסף",
+      slug: "category-management",
+    },
   ];
 
   return (
@@ -38,11 +46,11 @@ const RetailAcademy = ({ icon }: { icon: string }) => {
       <Link href="/academy" className="block">
         <Header headerText="אקדמיה" icon={icon} />
       </Link>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-4 mx-4 md:px-12">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 p-4 mx-4 md:px-12">
         {courses.map((course) => (
           <div
             key={course.id}
-            className="max-w-sm mx-auto bg-gray-100 shadow-md rounded-lg overflow-hidden">
+            className="max-w-sm mx-auto bg-gray-100 shadow-md rounded-lg overflow-hidden border-2 border-primary">
             {" "}
             {/* Added max-w-sm and mx-auto */}
             <Image

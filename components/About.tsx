@@ -85,7 +85,7 @@ const About = ({ icon }: { icon: string }) => {
       role: 'מנכ"ל משותף SINERGIA GROUP',
       description:
         "Award-winning designer with expertise in UI/UX and brand identity.",
-      image: "/partners/irit-bg.png",
+      image: "/partners/irit.jpg",
     },
     {
       id: 3,
@@ -115,7 +115,7 @@ const About = ({ icon }: { icon: string }) => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="container mx-auto  px-4 md:px-16">
         <div className=" border-2 border-primary  p-4 rounded-lg ">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-primary">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-white">
             <AnimatedStat end={15} title="שנות ניסיון" />
             <AnimatedStat end={200} title="לקוחות מרוצים" />
             <AnimatedStat end={500} title="פרוייקטים שהושלמו" />

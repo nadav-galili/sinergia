@@ -64,7 +64,7 @@ export const CustomerRows = ({
   rows: { row1: Customer[]; row2: Customer[]; row3: Customer[] };
 }) => {
   return (
-    <div className="flex flex-col gap-8 overflow-hidden">
+    <div className="flex flex-col gap-8 overflow-hidden bg-white rounded-lg">
       <CustomerRow items={rows.row1} direction="left" speed={120} />
       <CustomerRow items={rows.row2} direction="right" speed={150} />
       <CustomerRow items={rows.row3} direction="left" speed={120} />
