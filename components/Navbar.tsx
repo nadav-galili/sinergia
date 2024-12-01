@@ -133,7 +133,7 @@ export default function Navbar() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}>
       {/* Background Images with Enhanced Crossfade */}
-      <div className="absolute inset-0 h-full overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden">
         {isClient && imagesLoaded && (
           <AnimatePresence mode="sync">
             {/* Current Image */}
@@ -162,6 +162,7 @@ export default function Navbar() {
                   fill
                   priority
                   className="object-cover"
+                  sizes="100vw"
                 />
                 <motion.div
                   className="absolute inset-0 bg-black/20"
@@ -266,11 +267,11 @@ export default function Navbar() {
                       className="group relative px-2 py-1"
                       onMouseEnter={() => setHoveredItem(item.name)}
                       onMouseLeave={() => setHoveredItem(null)}>
-                      <span className="relative !text-white transition-colors duration-300 hover:text-primary text-2xl">
+                      <span className="relative text-white transition-colors duration-300 text-2xl hover:text-primary">
                         {item.name}
                         {hoveredItem === item.name && (
                           <motion.span
-                            className="absolute -bottom-1 left-0 h-0.5 w-full bg-primary-300"
+                            className="absolute -bottom-1 left-0 h-0.5 w-full bg-primary-100"
                             layoutId="underline"
                             initial={{ scaleX: 0 }}
                             animate={{ scaleX: 1 }}

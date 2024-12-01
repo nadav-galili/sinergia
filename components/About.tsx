@@ -85,7 +85,7 @@ const About = ({ icon }: { icon: string }) => {
       role: 'מנכ"ל משותף SINERGIA GROUP',
       description:
         "Award-winning designer with expertise in UI/UX and brand identity.",
-      image: "/partners/irit.jpg",
+      image: "/partners/irit-bg.png",
     },
     {
       id: 3,
@@ -125,7 +125,7 @@ const About = ({ icon }: { icon: string }) => {
             {partners.map((partner) => (
               <div
                 key={partner.id}
-                className="p-6 rounded-lg bg-white shadow-lg border border-primary">
+                className="p-6 rounded-lg partners-bg  shadow-lg border border-primary">
                 <div className="flex justify-center mb-4">
                   <Avatar className="w-24 h-24">
                     <AvatarImage
@@ -140,10 +140,12 @@ const About = ({ icon }: { icon: string }) => {
                     </AvatarFallback>
                   </Avatar>
                 </div>
-                <h3 className="text-2xl text-primary font-bold mb-2">
+                <h3 className="text-2xl text-white font-bold mb-2">
                   {partner.name}
                 </h3>
-                <p className="text-gray-700 font-light mb-3">{partner.role}</p>
+                <p className="text-gray-700 font-semibold mb-3">
+                  {partner.role}
+                </p>
               </div>
             ))}
           </div>

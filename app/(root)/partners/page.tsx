@@ -40,7 +40,7 @@ const Page = () => {
         {partners.map((partner) => (
           <div
             key={partner.slug}
-            className="bg-white rounded-lg shadow-lg p-8 space-y-6">
+            className="partners-bg bg-white rounded-lg shadow-lg p-8 space-y-6">
             {partner.image && (
               <div className="flex justify-center mb-8">
                 <Avatar className="w-32 h-32">
