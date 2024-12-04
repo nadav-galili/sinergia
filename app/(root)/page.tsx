@@ -1,18 +1,19 @@
 import React from "react";
-import Categories from "@/components/Categories";
+// import Categories from "@/components/Categories";
 // import Parallex from "@/components/Parallex";
 import RetailAcademy from "@/components/RetailAcademy";
 import OurCustomers from "@/components/OurCustomers";
 import { Mail } from "lucide-react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
+import GlowServices from "@/components/GlowServices";
 
 export default async function Home() {
   return (
     <div>
-      <Categories icon="1" />
+      <GlowServices icon="1" />
+      {/* <Categories icon="1" /> */}
       <About icon="1" />
       <RetailAcademy icon="1" />
       <Projects icon="1" />
