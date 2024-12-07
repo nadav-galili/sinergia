@@ -201,7 +201,7 @@ export default function Navbar() {
       </div>
 
       {/* Navbar Content */}
-      <nav className="relative bg-[#455159] shadow-md">
+      <nav className="relative bg-[#303131] shadow-md">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex h-24 items-center justify-between">
             {/* Logo */}
@@ -312,7 +312,7 @@ export default function Navbar() {
 
       {/* Hero Content */}
       <motion.div
-        className="relative mx-auto max-w-7xl px-4 py-16 text-center"
+        className="relative mx-auto max-w-7xl px-4 py-16 text-center mb-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5 }}>

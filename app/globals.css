@@ -375,7 +375,7 @@
   margin-top: var(--flow-space, 1.25em);
 }
 
-/* .cta {
+.cta {
   display: block;
   align-self: end;
   margin: 1em 0 0.5em 0;
@@ -387,7 +387,7 @@
   border-radius: 10px;
   font-size: 1rem;
   font-weight: 600;
-} */
+}
 
 .overlay {
   position: absolute;
