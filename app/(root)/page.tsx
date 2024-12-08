@@ -2,6 +2,7 @@ import React from "react";
 // import Categories from "@/components/Categories";
 // import Parallex from "@/components/Parallex";
 import RetailAcademy from "@/components/RetailAcademy";
+import Academy from "@/components/Academy";
 import OurCustomers from "@/components/OurCustomers";
 import { Mail } from "lucide-react";
 import Link from "next/link";
@@ -15,7 +16,8 @@ export default async function Home() {
       <GlowServices icon="1" />
       {/* <Categories icon="1" /> */}
       <About icon="1" />
-      <RetailAcademy icon="1" />
+      <Academy />
+      {/* <RetailAcademy icon="1" /> */}
       <Projects icon="1" />
       <OurCustomers />
 

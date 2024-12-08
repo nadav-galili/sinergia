@@ -54,15 +54,17 @@ const Footer = () => {
           </Link>
         </div>
       </div>
-      <p className="text-center text-sm mt-4">
-        כל הזכויות שמורות לסינרגיה &copy; {new Date().getFullYear()}
-      </p>
-      <p className="text-center text-sm ">
-        <Link href="/accessability" className="underline">
-          הצהרת נגישות
-        </Link>
-      </p>
-      <p className="text-center text-sm">Developed by nadav galili</p>
+      <div className="flex flex-col md:flex-row justify-between w-5/6 mx-auto items-center">
+        <p className="text-center text-sm">
+          כל הזכויות שמורות לסינרגיה &copy; {new Date().getFullYear()}
+        </p>
+        <p className="text-center text-sm ">
+          <Link href="/accessability" className="underline">
+            הצהרת נגישות
+          </Link>
+        </p>
+        <p className="text-center text-sm">Developed by nadav galili</p>
+      </div>
     </div>
   );
 };

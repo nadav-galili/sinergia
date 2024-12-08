@@ -432,3 +432,7 @@
   --lightness: 95%;
   background: hsla(var(--hsl), 0.1);
 }
+
+.academy-gradient {
+  background: linear-gradient(to bottom left, #1590cf, #040000);
+}
