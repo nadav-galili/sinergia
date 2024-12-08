@@ -1,10 +1,14 @@
+// components/Navbar.tsx
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import Loader from "@/components/Loader";
+import BackgroundImages from "@/components/BackgroundImages";
+import MobileMenu from "@/components/MobileMenu";
+import NavItem from "@/components/NavItem";
+import Image from "next/image";
 
 const navItems = [
   { name: "אודות", href: "/partners" },
@@ -14,22 +18,6 @@ const navItems = [
   { name: "בלוג", href: "/blog" },
   { name: "צור קשר", href: "/contact" },
 ];
-
-const fadeInFromTop = {
-  hidden: { opacity: 0, y: -20 },
-  visible: { opacity: 1, y: 0 },
-};
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3,
-    },
-  },
-};
 
 const images = [
   "/header/header3.jpeg",
@@ -51,56 +39,30 @@ export default function Navbar() {
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [isFullyLoaded, setIsFullyLoaded] = useState(false);
 
-  // Fix hydration issues by waiting for client-side render
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  // Preload images safely
   useEffect(() => {
     if (!isClient) return;
 
     const preloadImages = async () => {
-      try {
-        const imagePromises = images.map((src) => {
-          return new Promise((resolve, reject) => {
-            if (typeof window !== "undefined") {
-              const img = document.createElement("img");
-              img.src = src;
-              img.onload = resolve;
-              img.onerror = reject;
-            } else {
-              resolve(null);
-            }
-          });
+      const imagePromises = images.map((src) => {
+        return new Promise<void>((resolve) => {
+          const img = new window.Image();
+          img.src = src;
+          img.onload = (event: Event) => resolve();
         });
+      });
 
-        // Also preload the logo
-        const logoPromise = new Promise((resolve, reject) => {
-          const img = document.createElement("img");
-          img.src = "/transparentLogo.png";
-          img.onload = resolve;
-          img.onerror = reject;
-        });
-
-        await Promise.all([...imagePromises, logoPromise]);
-        setImagesLoaded(true);
-
-        // Add a slight delay before showing the content
-        setTimeout(() => {
-          setIsFullyLoaded(true);
-        }, 500);
-      } catch (error) {
-        console.error("Error preloading images:", error);
-        setImagesLoaded(true);
-        setIsFullyLoaded(true);
-      }
+      await Promise.all(imagePromises);
+      setImagesLoaded(true);
+      setTimeout(() => setIsFullyLoaded(true), 500);
     };
 
     preloadImages();
   }, [isClient]);
 
-  // Image transition effect with adjusted timing
   useEffect(() => {
     if (!isClient || !imagesLoaded) return;
 
@@ -108,11 +70,8 @@ export default function Navbar() {
       setIsTransitioning(true);
       setPreviousImageIndex(currentImageIndex);
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-
-      setTimeout(() => {
-        setIsTransitioning(false);
-      }, 1000); // 1 second transition duration
-    }, 2000); // 2 seconds display time
+      setTimeout(() => setIsTransitioning(false), 1000);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [isClient, imagesLoaded, currentImageIndex]);
@@ -121,7 +80,6 @@ export default function Navbar() {
     setIsMobileMenuOpen((prev) => !prev);
   };
 
-  // Loading screen
   if (!isFullyLoaded) {
     return <Loader />;
   }
@@ -132,84 +90,40 @@ export default function Navbar() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}>
-      {/* Background Images with Enhanced Crossfade */}
-      <div className="absolute inset-0 overflow-hidden">
-        {isClient && imagesLoaded && (
-          <AnimatePresence mode="sync">
-            {/* Current Image */}
-            <motion.div
-              key={currentImageIndex}
-              initial={{ opacity: 0 }}
-              animate={{
-                opacity: 1,
-                transition: {
-                  duration: 1,
-                  ease: "easeInOut",
-                },
-              }}
-              exit={{
-                opacity: 0,
-                transition: {
-                  duration: 1,
-                  ease: "easeInOut",
-                },
-              }}
-              className="absolute inset-0 h-full">
-              <div className="relative h-full w-full">
-                <Image
-                  src={images[currentImageIndex]}
-                  alt={`Background ${currentImageIndex + 1}`}
-                  fill
-                  priority
-                  className="object-cover"
-                  sizes="100vw"
-                />
-                <motion.div
-                  className="absolute inset-0 bg-black/20"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 1 }}
-                />
-              </div>
-            </motion.div>
-
-            {/* Previous Image */}
-            <motion.div
-              key={`prev-${previousImageIndex}`}
-              initial={{ opacity: 1 }}
-              animate={{
-                opacity: 0,
-                transition: {
-                  duration: 1,
-                  ease: "easeInOut",
-                },
-              }}
-              className="absolute inset-0 h-full">
-              <div className="relative h-full w-full">
-                <Image
-                  src={images[previousImageIndex]}
-                  alt={`Background Previous ${previousImageIndex + 1}`}
-                  fill
-                  priority
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-black/20" />
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        )}
+      <div className="sticky top-0 z-50 bg-[#303131] md:hidden">
+        <div className="flex items-center justify-between h-24 px-4">
+          <div>
+            <MobileMenu
+              isOpen={isMobileMenuOpen}
+              navItems={navItems}
+              onToggle={handleMobileMenuToggle}
+            />
+          </div>
+          <Link href="/" className="block">
+            <Image
+              src="/transparentLogo.png"
+              alt="Sinergia Logo"
+              width={400}
+              height={400}
+              priority
+              className="w-48"
+            />
+          </Link>
+        </div>
       </div>
 
-      {/* Navbar Content */}
-      <nav className="relative bg-[#303131] shadow-md">
+      <BackgroundImages
+        images={images}
+        currentImageIndex={currentImageIndex}
+        previousImageIndex={previousImageIndex}
+        isClient={isClient}
+        imagesLoaded={imagesLoaded}
+      />
+
+      <nav className="hidden md:block sticky top-0 bg-[#303131] shadow-md z-40">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex h-24 items-center justify-between">
-            {/* Logo */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="flex-1">
+            <div className="flex-1 flex justify-start">
               <Link href="/">
                 <Image
                   src="/transparentLogo.png"
@@ -217,96 +131,25 @@ export default function Navbar() {
                   width={400}
                   height={400}
                   priority
-                  className=""
+                  className="w-48 md:w-[400px]"
                 />
               </Link>
-            </motion.div>
+            </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden flex flex-col justify-center items-center w-8 h-12"
-              onClick={handleMobileMenuToggle}
-              aria-label="Toggle mobile menu">
-              <motion.div
-                className="bg-white w-6 h-1 mb-1"
-                animate={{
-                  rotate: isMobileMenuOpen ? 45 : 0,
-                  y: isMobileMenuOpen ? 8 : 0,
-                }}
-                transition={{ duration: 0.4 }}
-              />
-              <motion.div
-                className="bg-white w-6 h-1 mb-1"
-                animate={{ opacity: isMobileMenuOpen ? 0 : 1 }}
-                transition={{ duration: 0.4 }}
-              />
-              <motion.div
-                className="bg-white w-6 h-1"
-                animate={{
-                  rotate: isMobileMenuOpen ? -45 : 0,
-                  y: isMobileMenuOpen ? -8 : 0,
-                }}
-                transition={{ duration: 0.4 }}
-              />
-            </button>
-
-            {/* Navigation Items */}
-            {isClient && (
-              <motion.div
-                className="hidden md:flex"
-                variants={staggerContainer}
-                initial="hidden"
-                animate="visible">
+            <div className="flex-1 flex justify-end">
+              <div className="hidden md:flex">
                 {navItems.map((item) => (
-                  <motion.div
+                  <NavItem
                     key={item.name}
-                    variants={fadeInFromTop}
-                    className="ml-8">
-                    <Link
-                      href={item.href}
-                      className="group relative px-2 py-1"
-                      onMouseEnter={() => setHoveredItem(item.name)}
-                      onMouseLeave={() => setHoveredItem(null)}>
-                      <span className="relative text-white transition-colors duration-300 text-2xl hover:text-primary">
-                        {item.name}
-                        {hoveredItem === item.name && (
-                          <motion.span
-                            className="absolute -bottom-1 left-0 h-0.5 w-full bg-primary-100"
-                            layoutId="underline"
-                            initial={{ scaleX: 0 }}
-                            animate={{ scaleX: 1 }}
-                            exit={{ scaleX: 0 }}
-                            transition={{ duration: 0.2 }}
-                          />
-                        )}
-                      </span>
-                    </Link>
-                  </motion.div>
+                    item={item}
+                    hoveredItem={hoveredItem}
+                    onMouseEnter={() => setHoveredItem(item.name)}
+                    onMouseLeave={() => setHoveredItem(null)}
+                  />
                 ))}
-              </motion.div>
-            )}
+              </div>
+            </div>
           </div>
-
-          {/* Mobile Menu */}
-          <AnimatePresence>
-            {isMobileMenuOpen && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                className="md:hidden overflow-hidden">
-                {navItems.map((item) => (
-                  <Link
-                    onClick={handleMobileMenuToggle}
-                    key={item.name}
-                    href={item.href}
-                    className="block px-4 py-2 text-white hover:bg-primary-500">
-                    {item.name}
-                  </Link>
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
         </div>
       </nav>
 
@@ -316,13 +159,10 @@ export default function Navbar() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5 }}>
-        <h1
-          className="text-5xl font-bold 
-  mx-auto mt-1 bg-black/30 max-w-[33rem] font-regular font-assistant rounded-lg  py-2 text-white relative">
+        <h1 className="text-5xl font-bold mx-auto mt-1 bg-black/30 max-w-[33rem] font-regular font-assistant rounded-lg py-2 text-white relative">
           ייעוץ קמעונאות מתקדם
         </h1>
-
-        <p className="mx-auto mt-1 bg-black/30 max-w-[33rem] font-regular text-4xl font-assistant rounded-lg  py-2 text-white relative">
+        <p className="mx-auto mt-1 bg-black/30 max-w-[33rem] font-regular text-4xl font-assistant rounded-lg py-2 text-white relative">
           פתרונות אסטרטגיים לעסקים קמעונאיים
         </p>
       </motion.div>
