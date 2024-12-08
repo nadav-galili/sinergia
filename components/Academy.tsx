@@ -1,11 +1,17 @@
 // import React from "react";
 import { ChevronsLeft } from "lucide-react";
 import Link from "next/link";
+import {
+  ShoppingBag,
+  ShoppingCart,
+  ScanBarcode,
+  ShoppingBasket,
+} from "lucide-react";
 
 import Image from "next/image";
 import Header from "./Header";
 
-const RetailAcademy = ({ icon }: { icon: string }) => {
+const Academy = () => {
   const courses = [
     {
       id: 1,
@@ -14,6 +20,7 @@ const RetailAcademy = ({ icon }: { icon: string }) => {
       slug: "category-management",
       image: "/academy/academy1.jpeg",
       cta: "למידע נוסף",
+      icon: ShoppingBag,
     },
     {
       id: 2,
@@ -22,6 +29,7 @@ const RetailAcademy = ({ icon }: { icon: string }) => {
       slug: "category-management",
       image: "/academy/academy1.jpeg",
       cta: "למידע נוסף",
+      icon: ScanBarcode,
     },
     {
       id: 3,
@@ -30,6 +38,7 @@ const RetailAcademy = ({ icon }: { icon: string }) => {
       image: "/academy/academy1.jpeg",
       cta: "למידע נוסף",
       slug: "category-management",
+      icon: ShoppingBasket,
     },
     {
       id: 4,
@@ -38,40 +47,34 @@ const RetailAcademy = ({ icon }: { icon: string }) => {
       image: "/academy/academy1.jpeg",
       cta: "למידע נוסף",
       slug: "category-management",
+      icon: ShoppingCart,
     },
   ];
 
   return (
-    <section className="container mx-auto mt-10 pt-10">
-      {/* <Link href="/academy" className="block">
-        <Header headerText="אקדמיה" icon={icon} />
-      </Link> */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 p-4 mx-4 md:px-12">
+    <section className="container mx-auto my-10 py-10">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
         {courses.map((course) => (
           <div
             key={course.id}
-            className="max-w-sm mx-auto bg-gray-100 shadow-md rounded-lg overflow-hidden border-2 border-primary">
-            {" "}
-            {/* Added max-w-sm and mx-auto */}
-            <Image
-              src={course.image}
-              alt={course.title}
-              width={300}
-              height={192}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4">
-              <h2 className="text-xl font-semibold mb-2">{course.title}</h2>
-              <p className="text-gray-600 mb-4 font-light">
-                {course.description}
-              </p>
-
-              <Link
-                href={`/academy/${course.id}`}
-                className="flex items-center justify-center text-primary">
-                {course.cta}
-                <ChevronsLeft className="ml-2" />
-              </Link>
+            className="col-span-1 h-64  shadow-md rounded-lg overflow-hidden border-2 border-primary academy-gradient">
+            <div className="flex flex-col justify-between h-full p-4 ">
+              <div>
+                <h2 className="text-2xl text-white font-semibold mb-2">
+                  {course.title}
+                </h2>
+                <p className="text-gray-400 mb-4 font-light text-xl">
+                  {course.description}
+                </p>
+              </div>
+              <div className="mt-auto flex flex-row justify-between">
+                <Link
+                  href={`/academy/${course.id}`}
+                  className="text-white text-2xl font-semibold flex flex-row items-center gap-2">
+                  {course.cta}
+                </Link>
+                <course.icon className="text-white text-2xl" size={52} />
+              </div>
             </div>
           </div>
         ))}
@@ -80,4 +83,4 @@ const RetailAcademy = ({ icon }: { icon: string }) => {
   );
 };
 
-export default RetailAcademy;
+export default Academy;

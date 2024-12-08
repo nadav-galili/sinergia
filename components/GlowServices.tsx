@@ -85,6 +85,7 @@ const GlowServices = ({ icon }: { icon: string }) => {
   useEffect(() => {
     const cardsContainer = cardsContainerRef.current;
     const overlay = overlayRef.current;
+
     const cards = Array.from(
       document.querySelectorAll(".card")
     ) as HTMLElement[];
@@ -102,7 +103,7 @@ const GlowServices = ({ icon }: { icon: string }) => {
     const createOverlayCta = (overlayCard: HTMLElement, ctaEl: Element) => {
       const overlayCta = document.createElement("div");
       overlayCta.classList.add("cta");
-      overlayCta.textContent = ctaEl.textContent;
+      overlayCta.textContent = "";
       overlayCta.setAttribute("aria-hidden", "true");
       overlayCard.append(overlayCta);
     };
@@ -139,10 +140,10 @@ const GlowServices = ({ icon }: { icon: string }) => {
   }, []);
 
   return (
-    <main className="main flow container mx-auto rounded-lg">
-      <Link href="/services" className="main__heading">
+    <main className="flow container mx-auto rounded-lg mt-10 ">
+      {/* <Link href="/services" className="main__heading">
         <Header headerText="השירותים שלנו" icon={icon} />
-      </Link>
+      </Link> */}
       <motion.div
         className="main__cards cards"
         ref={cardsContainerRef}

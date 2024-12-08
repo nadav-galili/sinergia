@@ -46,19 +46,12 @@ const successStories: SuccessStory[] = [
 
 const Projects = ({ icon }: { icon: string }) => {
   return (
-    <section className="container mx-auto">
-      <Link href="/projects" className="block">
-        <Header headerText="פרוייקטים לדוגמה" icon={icon} />
-      </Link>
-      {/* <h3 className="text-2xl  font-semibold !text-primary container mx-auto  py-3 rounded-lg underline text-center mb-5 ">
-        ההצלחות שלנו
-      </h3> */}
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6  mx-4 md:px-12">
+    <section className="container mx-auto mt-10 pt-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {successStories.map((story, index) => (
           <div
             key={index}
-            className="bg-white text-center rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow"
+            className="bg-gray-300 text-center rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow"
             tabIndex={0}
             role="article"
             aria-label={`Success story: ${story.title}`}>

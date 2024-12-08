@@ -21,11 +21,11 @@ const BlogPage = async ({
           <Header headerText="בלוג" icon="0" />
         </div>
         <BlogSignIn />
-        <section className="flex justify-center  items-center flex-col py-10 px-6">
+        <section className="flex justify-center  items-center flex-col py-5 px-6">
           <SearchForm query={query} />
         </section>
         <section className="section_container">
-          <p className="text-30-semibold">
+          <p className="text-30-semibold !text-white">
             {query ? `Search results for "${query}"` : "כל המאמרים"}
           </p>
           <ul className="mt-7 card_grid">
