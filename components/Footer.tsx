@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <div className="bg-[#303131] text-white p-6">
+    <div className="bg-[#303131] text-white py-6">
       <div className="flex flex-col md:flex-row justify-between min-h-[100px] w-5/6 mx-auto items-center">
         <Link href="/">
           <Image
@@ -54,7 +54,7 @@ const Footer = () => {
           </Link>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row justify-between w-5/6 mx-auto items-center">
+      <div className="flex flex-col md:flex-row justify-between w-1/3 mx-auto items-center">
         <p className="text-center text-sm">
           כל הזכויות שמורות לסינרגיה &copy; {new Date().getFullYear()}
         </p>

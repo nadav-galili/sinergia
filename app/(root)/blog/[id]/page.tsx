@@ -72,15 +72,16 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   return (
     <section className="container mx-auto">
       <Header headerText={post.title} icon="0" />
-      <p className="tag  mx-auto">{formatDate(post._createdAt)}</p>
-
       <section className="section_container">
+        <p className="tag  max-w-4xl mx-auto mb-4">
+          {formatDate(post._createdAt)}
+        </p>
         <img
           src={post.imageUrl}
           alt="thumbnail"
-          className="w-full h-auto rounded-xl"
+          className="w-full max-w-4xl mx-auto rounded-xl"
         />
-        <div className="space-y-5 mt-10 max-w-4xl mx-auto">
+        <div className="space-y-5 mt-10 max-w-4xl mx-auto bg-white rounded-xl p-5">
           <div className="flex-between gap-5">
             <Link
               href={`/user/${post.author?._id}`}
@@ -93,7 +94,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
           </div>
           <PortableText value={post.body} components={components} />
         </div>
-        <hr className="divider" />
+        {/* <hr className="divider" /> */}
         <Suspense fallback={<div>Loading...</div>}>
           <View id={id} />
         </Suspense>

@@ -76,8 +76,8 @@ const BlogSignIn = () => {
   return (
     <form action={formAction} className="w-full max-w-3xl mx-auto">
       <div className="flex flex-col md:flex-row gap-4 items-center md:items-end">
-        <div className="w-2/3 md:w-full">
-          <label htmlFor="email" className="startup-form_label">
+        <div className="w-2/3 md:w-full ">
+          <label htmlFor="email" className=" startup-form_label">
             רישום לקבלת עדכון על פרסום פוסט חדש{" "}
           </label>
           <Input

@@ -24,26 +24,26 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
           <motion.span
             animate={
               isOpen
-                ? { rotate: 45, y: 11.5, width: "32px" }
+                ? { rotate: 45, y: 12, width: "32px" }
                 : { rotate: 0, y: 0, width: "28px" }
             }
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.1, transition: "easeInOut" }}
             className="block h-[2px] bg-gray-800 rounded-sm mb-[11px] ml-[3px] origin-center transition-all"
           />
           <motion.span
             animate={
               isOpen ? { opacity: 0, width: 0 } : { opacity: 1, width: "32px" }
             }
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.1, transition: "easeInOut" }}
             className="block h-[2px] bg-gray-800 rounded-sm"
           />
           <motion.span
             animate={
               isOpen
-                ? { rotate: -45, y: -11.5, width: "32px" }
+                ? { rotate: -45, y: -12, width: "32px" }
                 : { rotate: 0, y: 0, width: "22px", marginLeft: "6px" }
             }
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.1, transition: "easeInOut" }}
             className="block h-[2px] bg-gray-800 rounded-sm mt-[11px] origin-center"
           />
         </div>
@@ -55,7 +55,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
             initial={{ clipPath: "circle(30px at 40px 40%)" }}
             animate={{ clipPath: "circle(100%)" }}
             exit={{ clipPath: "circle(30px at 40px 40%)" }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
             className="fixed inset-0 bg-black/80 z-10">
             {" "}
             {/* inset-0 is shorthand for top:0, right:0, bottom:0, left:0 - makes element fill entire viewport */}
