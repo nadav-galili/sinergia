@@ -4,14 +4,14 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <div className="bg-[#303131] text-white py-6">
-      <div className="flex flex-col md:flex-row justify-between min-h-[100px] w-5/6 mx-auto items-center">
+    <div className="bg-[#303131] text-white py-2">
+      <div className="flex flex-col md:flex-row justify-between w-5/6 mx-auto items-center">
         <Link href="/">
           <Image
             src="/transparentLogo.png"
             alt="Sinergia Logo"
-            width={350}
-            height={350}
+            width={280}
+            height={280}
             priority
             className="mb-4 md:mb-0"
           />
@@ -19,7 +19,7 @@ const Footer = () => {
         <p className="text-2xl font-semibold text-center md:text-left">
           לפרטים : ארזה בן עמי ארמה
         </p>
-        <p className="text-2xl flex items-center gap-2 p-5">
+        <p className="text-2xl flex items-center gap-2 px-5 ">
           <Link
             href="tel:+972544456103"
             className="text-white  hover:text-success transition-colors flex items-center"

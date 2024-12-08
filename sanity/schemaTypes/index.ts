@@ -6,6 +6,7 @@ import { ourServices } from "./ourServices";
 import { blockContentType } from "./blockContentType";
 import { post } from "./post";
 import { blogSignIn } from "./blogSignIn";
+import { academy } from "./academy";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -16,5 +17,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     blockContentType,
     post,
     blogSignIn,
+    academy,
   ],
 };

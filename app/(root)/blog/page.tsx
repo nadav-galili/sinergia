@@ -1,7 +1,6 @@
 import SearchForm from "@/components/SearchForm";
 import { GET_POSTS } from "@/sanity/lib/queries";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
-import Header from "@/components/Header";
 import PostCard, { PostCardType } from "@/components/PostCard";
 import BlogSignIn from "@/components/BlogSignIn";
 const BlogPage = async ({
@@ -16,9 +15,9 @@ const BlogPage = async ({
     const posts = await sanityFetch({ query: GET_POSTS, params });
 
     return (
-      <>
+      <div className="bg-white overflow-hidden">
         <div className="container mx-auto">
-          <Header headerText="בלוג" icon="0" />
+          <p className="text-30-semibold text-center mt-10">בלוג</p>
         </div>
         <BlogSignIn />
         <section className="flex justify-center  items-center flex-col py-5 px-6">
@@ -39,7 +38,7 @@ const BlogPage = async ({
           </ul>
         </section>
         <SanityLive />
-      </>
+      </div>
     );
   } catch (error) {
     console.error("Error fetching posts:", error);

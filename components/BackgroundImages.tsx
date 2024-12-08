@@ -10,10 +10,10 @@ interface BackgroundImagesProps {
   imagesLoaded: boolean;
 }
 
-const fadeInFromTop = {
-  hidden: { opacity: 0, y: -20 },
-  visible: { opacity: 1, y: 0 },
-};
+// const fadeInFromTop = {
+//   hidden: { opacity: 0, y: -20 },
+//   visible: { opacity: 1, y: 0 },
+// };
 
 const BackgroundImages: React.FC<BackgroundImagesProps> = ({
   images,
@@ -23,7 +23,7 @@ const BackgroundImages: React.FC<BackgroundImagesProps> = ({
   imagesLoaded,
 }) => {
   return (
-    <div className="absolute inset-0 overflow-hidden">
+    <div className="inset-0">
       {isClient && imagesLoaded && (
         <AnimatePresence mode="sync">
           {/* Current Image */}
@@ -32,7 +32,7 @@ const BackgroundImages: React.FC<BackgroundImagesProps> = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 h-full">
+            className="absolute inset-0 h-[22em]">
             <div className="relative h-full w-full">
               <Image
                 src={images[currentImageIndex]}
@@ -56,7 +56,7 @@ const BackgroundImages: React.FC<BackgroundImagesProps> = ({
             key={`prev-${previousImageIndex}`}
             initial={{ opacity: 1 }}
             animate={{ opacity: 0 }}
-            className="absolute inset-0 h-full">
+            className="absolute inset-0 h-[22em]">
             <div className="relative h-full w-full">
               <Image
                 src={images[previousImageIndex]}

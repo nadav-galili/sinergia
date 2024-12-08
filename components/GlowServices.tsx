@@ -140,7 +140,7 @@ const GlowServices = ({ icon }: { icon: string }) => {
   }, []);
 
   return (
-    <main className="flow container mx-auto rounded-lg mt-10 ">
+    <main className="flow container mx-auto rounded-lg my-10 ">
       {/* <Link href="/services" className="main__heading">
         <Header headerText="השירותים שלנו" icon={icon} />
       </Link> */}

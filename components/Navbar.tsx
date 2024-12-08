@@ -3,9 +3,8 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import Loader from "@/components/Loader";
-import BackgroundImages from "@/components/BackgroundImages";
+import { useState } from "react";
+
 import MobileMenu from "@/components/MobileMenu";
 import NavItem from "@/components/NavItem";
 import Image from "next/image";
@@ -19,70 +18,14 @@ const navItems = [
   { name: "צור קשר", href: "/contact" },
 ];
 
-const images = [
-  "/header/header3.jpeg",
-  "/header/header4.jpeg",
-  "/header/header5.jpeg",
-  "/header/header6.jpeg",
-  "/header/header7.jpeg",
-  "/header/header8.jpeg",
-  "/header/header9.jpeg",
-];
-
 export default function Navbar() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [previousImageIndex, setPreviousImageIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isClient, setIsClient] = useState(false);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
-  const [isFullyLoaded, setIsFullyLoaded] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  useEffect(() => {
-    if (!isClient) return;
-
-    const preloadImages = async () => {
-      const imagePromises = images.map((src) => {
-        return new Promise<void>((resolve) => {
-          const img = new window.Image();
-          img.src = src;
-          img.onload = (event: Event) => resolve();
-        });
-      });
-
-      await Promise.all(imagePromises);
-      setImagesLoaded(true);
-      setTimeout(() => setIsFullyLoaded(true), 500);
-    };
-
-    preloadImages();
-  }, [isClient]);
-
-  useEffect(() => {
-    if (!isClient || !imagesLoaded) return;
-
-    const interval = setInterval(() => {
-      setIsTransitioning(true);
-      setPreviousImageIndex(currentImageIndex);
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-      setTimeout(() => setIsTransitioning(false), 1000);
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, [isClient, imagesLoaded, currentImageIndex]);
 
   const handleMobileMenuToggle = () => {
     setIsMobileMenuOpen((prev) => !prev);
   };
-
-  if (!isFullyLoaded) {
-    return <Loader />;
-  }
 
   return (
     <motion.div
@@ -111,14 +54,6 @@ export default function Navbar() {
           </Link>
         </div>
       </div>
-
-      <BackgroundImages
-        images={images}
-        currentImageIndex={currentImageIndex}
-        previousImageIndex={previousImageIndex}
-        isClient={isClient}
-        imagesLoaded={imagesLoaded}
-      />
 
       <nav className="hidden md:block sticky top-0 bg-[#303131] shadow-md z-40">
         <div className="mx-auto max-w-7xl px-4">
@@ -152,20 +87,6 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-
-      {/* Hero Content */}
-      <motion.div
-        className="relative mx-auto max-w-7xl px-4 py-16 text-center mb-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.5 }}>
-        <h1 className="text-5xl font-bold mx-auto mt-1 bg-black/30 max-w-[33rem] font-regular font-assistant rounded-lg py-2 text-white relative">
-          ייעוץ קמעונאות מתקדם
-        </h1>
-        <p className="mx-auto mt-1 bg-black/30 max-w-[33rem] font-regular text-4xl font-assistant rounded-lg py-2 text-white relative">
-          פתרונות אסטרטגיים לעסקים קמעונאיים
-        </p>
-      </motion.div>
     </motion.div>
   );
 }
