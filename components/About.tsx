@@ -5,7 +5,6 @@ import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import Link from "next/link";
-// import { ChevronsLeft } from "lucide-react";
 import Header from "./Header";
 
 interface StatProps {
@@ -105,9 +104,9 @@ const About = ({ icon }: { icon: string }) => {
 
   return (
     <section className="container mx-auto mt-10 pt-10">
-      {/* <Link href="/partners" className="block">
+      <Link href="/partners" className="block">
         <Header headerText="אודות" icon={icon} />
-      </Link> */}
+      </Link>
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 50 }}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Header from "./Header";
 import {
   ShoppingBag,
   ShoppingCart,
@@ -24,18 +25,22 @@ type AcademyType = Omit<typeof academy, "_id"> & {
   icon: keyof typeof iconMap;
 };
 
-const Academy = async () => {
+const Academy = async ({ icon }: { icon: string }) => {
   const { data: academyCourses } = await sanityFetch({ query: GET_ACADEMY });
 
   return (
     <section className="container mx-auto my-10 py-10">
+      <Link href="/academy" className="block">
+        <Header headerText="אקדמיה" icon={icon} />
+      </Link>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
         {academyCourses.map((course: AcademyType) => {
           const Icon = iconMap[course.icon as keyof typeof iconMap];
           return (
             <div
               key={course._id}
-              className="col-span-1 h-64 shadow-md rounded-lg overflow-hidden border-2 border-primary academy-gradient">
+              className="col-span-1 h-64 shadow-md rounded-lg overflow-hidden border-2
+               border-primary academy-gradient hover:scale-105 transition-all duration-300">
               <div className="flex flex-col justify-between h-full p-4">
                 <div>
                   <h2 className="text-2xl text-white font-semibold mb-2">
@@ -51,7 +56,7 @@ const Academy = async () => {
                     className="text-white text-2xl font-semibold flex flex-row items-center gap-2">
                     מידע נוסף
                   </Link>
-                  {Icon && <Icon className="text-white text-2xl" size={52} />}
+                  {Icon && <Icon className="text-white" size={70} />}
                 </div>
               </div>
             </div>

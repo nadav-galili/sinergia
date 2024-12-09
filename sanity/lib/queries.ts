@@ -74,7 +74,8 @@ export const CHECK_IF_EMAIL_EXISTS = defineQuery(
   }`
 );
 
-export const GET_ACADEMY = defineQuery(`*[_type == "academy"]{
+export const GET_ACADEMY =
+  defineQuery(`*[_type == "academy"] | order(_createdAt asc) {
   _id,
   title,
   sub_title,
