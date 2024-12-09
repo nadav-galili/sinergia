@@ -6,7 +6,6 @@ import { Check } from "lucide-react";
 import {
   ShoppingCart,
   Handshake,
-  ChartNoAxesCombined,
   ShoppingBasket,
   ChevronsLeft,
   Sparkles,
@@ -140,10 +139,10 @@ const GlowServices = ({ icon }: { icon: string }) => {
   }, []);
 
   return (
-    <main className="flow container mx-auto rounded-lg mt-10 ">
-      {/* <Link href="/services" className="main__heading">
+    <main className="flow container mx-auto rounded-lg my-10 ">
+      <Link href="/services" className="main__heading">
         <Header headerText="השירותים שלנו" icon={icon} />
-      </Link> */}
+      </Link>
       <motion.div
         className="main__cards cards"
         ref={cardsContainerRef}

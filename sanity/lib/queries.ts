@@ -73,3 +73,21 @@ export const CHECK_IF_EMAIL_EXISTS = defineQuery(
   _id
   }`
 );
+
+export const GET_ACADEMY =
+  defineQuery(`*[_type == "academy"] | order(_createdAt asc) {
+  _id,
+  title,
+  sub_title,
+  slug,
+  icon
+}`);
+
+export const GET_ACADEMY_BY_ID =
+  defineQuery(`*[_type == "academy" && _id == $id][0]{
+  _id,
+  title,
+  sub_title,
+  slug,
+  "pdfUrl": pdf.asset->url
+}`);

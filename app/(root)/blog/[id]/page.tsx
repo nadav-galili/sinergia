@@ -9,7 +9,7 @@ import { PortableText, PortableTextComponents } from "@portabletext/react";
 // import PostCard, { PostCardType } from "@/components/PostCard";
 import { sanityFetch } from "@/sanity/lib/live";
 import View from "@/components/View";
-import Header from "@/components/Header";
+// import Header from "@/components/Header";
 
 // Custom component for rendering images
 const CustomImage = ({ value }: { value: { asset: { url: string } } }) => {
@@ -70,8 +70,9 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   }
 
   return (
-    <section className="container mx-auto">
-      <Header headerText={post.title} icon="0" />
+    <section className="mx-auto bg-white overflow-hidden">
+      {/* <Header headerText={post.title} icon="0" /> */}
+      <p className="text-30-semibold text-center mt-10">{post.title}</p>
       <section className="section_container">
         <p className="tag  max-w-4xl mx-auto mb-4">
           {formatDate(post._createdAt)}

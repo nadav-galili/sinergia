@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 interface NavItemProps {
-  item: { name: string; href: string };
+  item: { name: string; href: string; target?: string };
   hoveredItem: string | null;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
@@ -17,11 +17,14 @@ const NavItem: React.FC<NavItemProps> = ({
 }) => {
   return (
     <motion.div
-      className="ml-8"
+      className="ml-5"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}>
-      <Link href={item.href} className="group relative  py-1">
-        <span className="relative text-white transition-colors duration-300 text-2xl hover:text-primary">
+      <Link
+        href={item.href}
+        className="group relative  py-1"
+        target={item.target}>
+        <span className="relative text-white transition-colors duration-300 text-[20px] hover:text-primary">
           {item.name}
           {hoveredItem === item.name && (
             <motion.span

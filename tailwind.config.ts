@@ -36,6 +36,7 @@ const config: Config = {
       },
       fontFamily: {
         // rubik: ["var(--font-rubik)"],
+        inter: ["Inter", "sans-serif"],
         assistant: ["var(--font-assistant)"],
       },
       borderRadius: {

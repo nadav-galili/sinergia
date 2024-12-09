@@ -1,7 +1,7 @@
-import RetailAcademy from "@/components/RetailAcademy";
+import Academy from "@/components/Academy";
 
-const Page = () => {
-  return <RetailAcademy icon="0" />;
+const Page = async () => {
+  return <Academy icon="0" />;
 };
 
 export default Page;

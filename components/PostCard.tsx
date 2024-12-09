@@ -1,10 +1,10 @@
 import { cn, formatDate } from "@/lib/utils";
 import { EyeIcon } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Author, Post } from "@/sanity/types";
-import { PortableText } from "@portabletext/react";
+// import { PortableText } from "@portabletext/react";
 
 export type PostCardType = Omit<Post, "author"> & {
   author?: Author;
@@ -18,7 +18,7 @@ const PostCard = ({ post }: { post: PostCardType }) => {
     views,
     author,
     title,
-    body,
+    // body,
     mainImageUrl,
     category,
   } = post;
