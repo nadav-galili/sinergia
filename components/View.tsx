@@ -2,7 +2,6 @@ import Ping from "@/components/Ping";
 import { client } from "@/sanity/lib/client";
 import { POST_VIEWS_QUERY } from "@/sanity/lib/queries";
 import { writeClient } from "@/sanity/lib/write-client";
-import { after } from "next/server";
 
 const View = async ({ id }: { id: string }) => {
   const { views: totalViews } = await client
@@ -10,13 +9,11 @@ const View = async ({ id }: { id: string }) => {
     .fetch(POST_VIEWS_QUERY, { id });
 
   // increment views
-  after(
-    async () =>
-      await writeClient
-        .patch(id)
-        .set({ views: totalViews + 1 })
-        .commit()
-  );
+  await writeClient
+    .patch(id)
+    .set({ views: totalViews + 1 })
+    .commit();
+
   return (
     <div className="view-container">
       <div className="absolute -top-2">
