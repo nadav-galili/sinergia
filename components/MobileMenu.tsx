@@ -18,33 +18,36 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
       <button
         onClick={onToggle}
         aria-label="Toggle mobile menu"
-        className="absolute top-4 right-4 z-50 w-[70px] h-[70px] bg-white rounded-full
+        className="absolute top-4 right-4 z-50 w-[70px] h-[70px]  rounded-full
          shadow-lg flex items-center justify-center hover:scale-105 transition-transform">
         <div className="relative w-[34px] flex flex-col items-center justify-center">
           <motion.span
             animate={
               isOpen
                 ? { rotate: 45, y: 12, width: "32px" }
-                : { rotate: 0, y: 0, width: "28px" }
+                : { rotate: 0, y: 0, width: "28px", marginLeft: "6px" }
             }
-            transition={{ duration: 0.1, transition: "easeInOut" }}
-            className="block h-[2px] bg-gray-800 rounded-sm mb-[11px] ml-[3px] origin-center transition-all"
+            transition={{
+              duration: 0.2,
+              transition: "easeInOut",
+            }}
+            className="block h-[3px] bg-white rounded-sm mb-[11px]   transition-all"
           />
           <motion.span
             animate={
               isOpen ? { opacity: 0, width: 0 } : { opacity: 1, width: "32px" }
             }
-            transition={{ duration: 0.1, transition: "easeInOut" }}
-            className="block h-[2px] bg-gray-800 rounded-sm"
+            transition={{ duration: 0.2, transition: "easeInOut" }}
+            className="block h-[3px] bg-white rounded-sm  "
           />
           <motion.span
             animate={
               isOpen
-                ? { rotate: -45, y: -12, width: "32px" }
-                : { rotate: 0, y: 0, width: "22px", marginLeft: "6px" }
+                ? { rotate: -45, y: -14, width: "32px" }
+                : { rotate: 0, y: 0, width: "28px", marginLeft: "6px" }
             }
-            transition={{ duration: 0.1, transition: "easeInOut" }}
-            className="block h-[2px] bg-gray-800 rounded-sm mt-[11px] origin-center"
+            transition={{ duration: 0.2, transition: "easeInOut" }}
+            className="block h-[3px] bg-white rounded-sm  mt-[11px] "
           />
         </div>
       </button>
