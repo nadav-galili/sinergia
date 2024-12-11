@@ -89,5 +89,9 @@ export const GET_ACADEMY_BY_ID =
   title,
   sub_title,
   slug,
+  "image1Url": image1.asset->url,
+  "image2Url": image2.asset->url,
+  "image3Url": image3.asset->url,
+  "image4Url": image4.asset->url,
   "pdfUrl": pdf.asset->url
 }`);

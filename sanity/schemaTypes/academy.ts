@@ -44,6 +44,32 @@ export const academy = defineType({
       type: "file",
     }),
     defineField({
+      name: "image1",
+      title: "image1",
+      type: "image",
+      options: { hotspot: true },
+    }),
+
+    defineField({
+      name: "image2",
+      title: "image2",
+      type: "image",
+      options: { hotspot: true },
+    }),
+    defineField({
+      name: "image3",
+      title: "image3",
+      type: "image",
+      options: { hotspot: true },
+    }),
+    defineField({
+      name: "image4",
+      title: "image4",
+      type: "image",
+      options: { hotspot: true },
+    }),
+
+    defineField({
       name: "publishedAt",
       title: "Published at",
       type: "datetime",
