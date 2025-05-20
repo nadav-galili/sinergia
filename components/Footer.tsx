@@ -39,7 +39,7 @@ const Footer = () => {
         </Link>
         <div className="flex gap-8 justify-center md:justify-start">
           <Link
-            href="https://www.linkedin.com"
+            href="https://www.linkedin.com/company/sinergia-group/"
             target="_blank"
             className="text-white hover:text-success transition-colors"
             aria-label="LinkedIn">

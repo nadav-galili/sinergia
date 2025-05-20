@@ -14,7 +14,7 @@ const navItems = [
   { name: "שירותים", href: "/services" },
   { name: "פרוייקטים", href: "/projects" },
   { name: "אקדמיה", href: "/academy" },
-  { name: "בלוג", href: "/blog" },
+  // { name: "בלוג", href: "/blog" },
   {
     name: "All About Retail",
     href: "https://www.allaboutretail.co.il/",
