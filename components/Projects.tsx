@@ -1,4 +1,4 @@
-import { ChevronsLeft, Trophy } from "lucide-react";
+import { Trophy } from "lucide-react";
 import Link from "next/link";
 import Header from "./Header";
 type SuccessStory = {
@@ -12,34 +12,31 @@ const successStories: SuccessStory[] = [
   {
     title: "רשת סופרמרקטים ארצית",
     client: "RetailCo Inc.",
-    description: "אתגר:שיפור הרווחיות ב25% תוך שנה",
+    description:
+      "ניתוח אסטרטגי של הרשת, אפיון חוזקות וחולשות והמלצה למיקוד ביעדים אסטרטגיים",
     achievements: [
-      "ניתוח מעמיק של נתוני מכירות",
-      "יישום אסטרטגיית תמחור חדשה",
-      "אוםטימזציה של מלאי",
-      "תוצאה:עלייה של 32% ברווחיות ",
+      "ניתוח אסטרטגי של הרשת, אפיון חוזקות וחולשות והמלצה למיקוד ביעדים אסטרטגיים",
+      " הכנת תוכנית עבודה עם יעדים ומדדים",
+      "הדרכה של מנהלי אזורים וסניפים",
+      "  עריכת ספר הנהלים של הרשת , הכנת לומדות באנימציה לבעלי תפקידים בסניף- קופאיות , מחסנאים , מנהלי אולם , סדרנים ועוד",
     ],
   },
   {
-    title: "רשת סופרמרקטים ארצית",
+    title: "מנהלי קטגוריות וטרייד של ספק מוביל",
     client: "RetailCo Inc.",
-    description: "אתגר:שיפור הרווחיות ב25% תוך שנה",
+    description: "פיתוח תוכנית הדרכה למערך מנהלי הקטגוריות",
     achievements: [
-      "ניתוח מעמיק של נתוני מכירות",
-      "יישום אסטרטגיית תמחור חדשה",
-      "אוםטימזציה של מלאי",
-      "תוצאה:עלייה של 32% ברווחיות ",
+      "פיתוח תוכנית הדרכה למנהלי הטרייד מרקטינג",
+      "פיתוח תוכנית הדרכה למערך מנהלי הקטגוריות",
     ],
   },
   {
-    title: "רשת סופרמרקטים ארצית",
+    title: "תוכנית אסטרטגיה ליצרן מזון",
     client: "RetailCo Inc.",
-    description: "אתגר:שיפור הרווחיות ב25% תוך שנה",
+    description: " פיתוח תוכנית אסטרטגית ליצרן",
     achievements: [
-      "ניתוח מעמיק של נתוני מכירות",
-      "יישום אסטרטגיית תמחור חדשה",
-      "אוםטימזציה של מלאי",
-      "תוצאה:עלייה של 32% ברווחיות ",
+      "פיתוח תוכנית אסטרטגית ליצרן",
+      "פיתוח תוכנית לשדרוג תהליכי:שיווק, תמחור , ערוצי הפצה, מכירות ועוד",
     ],
   },
 ];
@@ -62,13 +59,17 @@ const Projects = ({ icon }: { icon: string }) => {
               {story.title}
             </h3>
             {/* <p className="text-gray-600 font-medium mb-4">{story.client}</p> */}
-            <p className="text-black-100 mb-6">{story.description}</p>
+            {/* <p className="text-black-100">{story.description}</p> */}
 
             {/* <h4 className="font-semibold mb-3">Key Achievements:</h4> */}
-            <ul className="space-y-2 ">
+            <ul className="space-y-2 mt-4">
               {story.achievements.map((achievement, i) => (
-                <li key={i} className="flex text-center items-center ">
-                  <Trophy className="w-5 h-5 mx-2 text-success" />
+                <li key={i} className="flex text-right items-start ">
+                  <Trophy
+                    width={20}
+                    height={20}
+                    className="mx-2 text-success flex-shrink-0"
+                  />
                   {achievement}
                 </li>
               ))}
