@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { AmplitudeProvider } from "@/components/AmplitudeProvider";
 
 // const assistant = localFont({
 //   src: [
@@ -93,8 +94,10 @@ export default function RootLayout({
   return (
     <html lang="he" dir="rtl">
       <body className={`${assistant.variable} assistant`}>
-        {children}
-        <Toaster />
+        <AmplitudeProvider>
+          {children}
+          <Toaster />
+        </AmplitudeProvider>
       </body>
     </html>
   );

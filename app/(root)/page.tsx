@@ -1,7 +1,7 @@
 import React from "react";
 // import Categories from "@/components/Categories";
 // import Parallex from "@/components/Parallex";
-import RetailAcademy from "@/components/RetailAcademy";
+// import RetailAcademy from "@/components/RetailAcademy";
 import Academy from "@/components/Academy";
 import OurCustomers from "@/components/OurCustomers";
 import { Mail } from "lucide-react";
@@ -10,10 +10,11 @@ import About from "@/components/About";
 import Projects from "@/components/Projects";
 import GlowServices from "@/components/GlowServices";
 import Hero from "@/components/Hero";
+import { HomePageTracking } from "@/components/HomePageTracking";
 
 export default async function Home() {
   return (
-    <>
+    <HomePageTracking>
       <div>
         <Hero />
         <GlowServices icon="1" />
@@ -31,6 +32,6 @@ export default async function Home() {
           </div>
         </div>
       </div>
-    </>
+    </HomePageTracking>
   );
 }

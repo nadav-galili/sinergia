@@ -15,11 +15,11 @@ const navItems = [
   { name: "פרוייקטים", href: "/projects" },
   { name: "אקדמיה", href: "/academy" },
   // { name: "בלוג", href: "/blog" },
-  {
-    name: "All About Retail",
-    href: "https://www.allaboutretail.co.il/",
-    target: "_blank",
-  },
+  // {
+  //   name: "All About Retail",
+  //   href: "https://www.allaboutretail.co.il/",
+  //   target: "_blank",
+  // },
   { name: "צור קשר", href: "/contact" },
 ];
 

@@ -14,6 +14,7 @@ import Header from "@/components/Header";
 
 import Image from "next/image";
 import Link from "next/link";
+import { useAmplitudeTracking } from "@/hooks/useAmplitudeTracking";
 
 interface Category {
   title: string;
@@ -24,6 +25,7 @@ interface Category {
 }
 
 const GlowServices = ({ icon }: { icon: string }) => {
+  const { trackButtonClick, trackNavigation } = useAmplitudeTracking();
   const categories: Category[] = [
     {
       title: "ייעוץ אסטרטגי",
@@ -100,6 +102,7 @@ const GlowServices = ({ icon }: { icon: string }) => {
     };
 
     const createOverlayCta = (overlayCard: HTMLElement, ctaEl: Element) => {
+      console.log(ctaEl);
       const overlayCta = document.createElement("div");
       overlayCta.classList.add("cta");
       overlayCta.textContent = "";
@@ -191,7 +194,24 @@ const GlowServices = ({ icon }: { icon: string }) => {
               </div>
               <div className="bg-black flex items-center justify-between p-2">
                 <div className="flex items-center gap-2 ">
-                  <Link href={`/services/${category.slug}`}>
+                  <Link
+                    href={`/services/${category.slug}`}
+                    onClick={() => {
+                      trackButtonClick("service_card", {
+                        service_name: category.title,
+                        service_slug: category.slug,
+                        location: "homepage_services",
+                        button_type: "service_navigation",
+                      });
+                      trackNavigation(
+                        "homepage",
+                        `/services/${category.slug}`,
+                        {
+                          from_section: "services_overview",
+                          to_section: "service_detail",
+                        }
+                      );
+                    }}>
                     <h3 className="text-2xl  text-white font-bold flex items-center">
                       {category.title}
                       <ChevronsLeft className="w-6 h-6 ml-2" />
@@ -202,17 +222,7 @@ const GlowServices = ({ icon }: { icon: string }) => {
                   <div className="text-white">{category.icon}</div>
                 )}
               </div>
-              {/* <h2 className="card__heading">{category.title}</h2> */}
-              {/* <p className="card__price">$29.99</p> */}
-              {/* <ul role="list" className="card__bullets flow">
-                <li>Access to all premium workouts and nutrition plans</li>
-                <li>24/7 Priority support</li>
-                <li>1-on-1 virtual coaching session every month</li>
-                <li>Exclusive content and early access to new features</li>
-              </ul>
-              <a href="#ultimate" className="card__cta cta">
-                Go Ultate
-              </a> */}
+
               <div className="space-y-2 mt-2 ">
                 {category.subtitles.map((subtitle, index) => (
                   <div
