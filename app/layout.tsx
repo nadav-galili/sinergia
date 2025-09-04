@@ -3,6 +3,9 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { AmplitudeProvider } from "@/components/AmplitudeProvider";
+import { CookieConsent } from "@/components/CookieConsent";
+import { ConsentManagerProvider } from "@/components/ConsentManager";
+import Script from "next/script";
 
 // const assistant = localFont({
 //   src: [
@@ -93,11 +96,39 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="he" dir="rtl">
+      <head>
+        {/* Google Consent Mode v2 - Initialize before any other tracking scripts */}
+        <Script
+          id="gtag-consent-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              
+              // Set default consent mode - DENIED by default (GDPR compliant)
+              gtag('consent', 'default', {
+                'ad_storage': 'denied',
+                'analytics_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'functionality_storage': 'granted',
+                'personalization_storage': 'denied',
+                'security_storage': 'granted',
+                'wait_for_update': 500
+              });
+            `
+          }}
+        />
+      </head>
       <body className={`${assistant.variable} assistant`}>
-        <AmplitudeProvider>
-          {children}
-          <Toaster />
-        </AmplitudeProvider>
+        <ConsentManagerProvider>
+          <AmplitudeProvider>
+            {children}
+            <Toaster />
+            <CookieConsent />
+          </AmplitudeProvider>
+        </ConsentManagerProvider>
       </body>
     </html>
   );
