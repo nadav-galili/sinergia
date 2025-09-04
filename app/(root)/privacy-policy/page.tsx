@@ -34,7 +34,7 @@ export default function PrivacyPolicyPage() {
                 משתמש באתר שלנו.
               </p>
             </section>
-
+            {/* //// */}
             <section>
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">
                 2. איזה מידע אנחנו אוספים
