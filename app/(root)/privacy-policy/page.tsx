@@ -35,7 +35,6 @@ export default function PrivacyPolicyPage() {
               </p>
             </section>
 
-            {/* Section 2 - Information We Collect */}
             <section>
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">
                 2. איזה מידע אנחנו אוספים
