@@ -20,7 +20,6 @@ export default function PrivacyPolicyPage() {
             </p>
           </div>
 
-          {/* Content */}
           <div className="prose prose-lg max-w-none text-right space-y-8">
             {/* Section 1 - Introduction */}
             <section>
