@@ -125,26 +125,28 @@ const About = ({ icon }: { icon: string }) => {
               <div
                 key={partner.id}
                 className="p-6 rounded-lg partners-bg  shadow-lg border border-primary">
-                <div className="flex justify-center mb-4">
-                  <Avatar className="w-24 h-24">
-                    <AvatarImage
-                      src={partner.image}
-                      alt={`${partner.name}'s profile`}
-                    />
-                    <AvatarFallback>
-                      {partner.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
-                    </AvatarFallback>
-                  </Avatar>
-                </div>
-                <h3 className="text-2xl text-white font-bold mb-2">
-                  {partner.name}
-                </h3>
-                <p className="text-gray-700 font-semibold mb-3">
-                  {partner.role}
-                </p>
+                <Link href="/partners" key={partner.id}>
+                  <div className="flex justify-center mb-4">
+                    <Avatar className="w-24 h-24">
+                      <AvatarImage
+                        src={partner.image}
+                        alt={`${partner.name}'s profile`}
+                      />
+                      <AvatarFallback>
+                        {partner.name
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")}
+                      </AvatarFallback>
+                    </Avatar>
+                  </div>
+                  <h3 className="text-2xl text-white font-bold mb-2">
+                    {partner.name}
+                  </h3>
+                  <p className="text-gray-700 font-semibold mb-3">
+                    {partner.role}
+                  </p>
+                </Link>
               </div>
             ))}
           </div>
