@@ -125,7 +125,7 @@ const About = ({ icon }: { icon: string }) => {
               <div
                 key={partner.id}
                 className="p-6 rounded-lg partners-bg  shadow-lg border border-primary">
-                <Link href="/partners" key={partner.id}>
+                <Link href={`/partners/${partner.slug}`} key={partner.id}>
                   <div className="flex justify-center mb-4">
                     <Avatar className="w-24 h-24">
                       <AvatarImage

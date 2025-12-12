@@ -2,40 +2,8 @@
 
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { useAmplitudeTracking } from "@/hooks/useAmplitudeTracking";
-interface Partner {
-  slug: string;
-  name: string;
-  title: string;
-  image: string;
-  content: string;
-}
-
-const partners: Partner[] = [
-  {
-    slug: "eli-maron",
-    name: "אלי מרון",
-    title: "מנכ״ל משותף sinergia-group",
-    image: "/partners/eli.jpg",
-    content:
-      "כיהן בתפקידי מפתח בתחום ניהול השיווק, המכירות והסחר, שהבולטים ביניהם: סמנכ״ל השיווק של קוקה קולה ישראל במשך 12 שנה, סגן נשיא שופרסל לשיווק וסחר ומנכ״ל דחף. מרצה בבית הספר למנהל עסקים של המכללה למנהל - הערוץ האקדמי, אוניברסיטת בן גוריון, המי״ל והקריה האקדמית אונו.",
-  },
-  {
-    slug: "irit-galili",
-    name: "עירית גלילי",
-    title: "מנכ״ל משותף sinergia-group",
-    image: "/partners/irit.jpg",
-    content:
-      "פרשה מצה״ל בדרגת סא״ל, לאחר מגוון תפקידים תחום הפיתוח הארגוני, מומחית בניתוח ביצועים ואופטימיזציה של תהליכי תפעול, מכירות, שרשרת אספקה, ניהול מלאי ומבצעים, פיתוח מערכות BI, פיתוח תוכניות הדרכה ייחודיות לכל ארגון, ופיתוח ולומדות ב-E LEARNING",
-  },
-  {
-    slug: "arza-ben-ami",
-    name: "ארזה בן עמי ארמה",
-    title: "מנכ״ל משותף sinergia-group",
-    image: "/partners/arza.jpg",
-    content:
-      "לשעבר מנכ״ל A.b data מקבוצת Publicis מתמחה בתקשורת שיווקית, ניהול קשרי לקוחות, Database Marketing, הבנת התנהגות וצרכי הקונים והקמת מועדוני לקוחות.",
-  },
-];
+import { partners } from "@/lib/partners";
+import Link from "next/link";
 const Page = () => {
   const { trackPageView } = useAmplitudeTracking();
   trackPageView("partners_page_visible", {
@@ -45,9 +13,10 @@ const Page = () => {
     <div className="container mx-auto px-4 py-12">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {partners.map((partner) => (
-          <div
+          <Link
+            href={`/partners/${partner.slug}`}
             key={partner.slug}
-            className="partners-bg bg-white rounded-lg shadow-lg p-8 space-y-6">
+            className="partners-bg bg-white rounded-lg shadow-lg p-8 space-y-6 block hover:opacity-90 transition-opacity">
             {partner.image && (
               <div className="flex justify-center mb-8">
                 <Avatar className="w-32 h-32">
@@ -77,7 +46,7 @@ const Page = () => {
                 {partner.content}
               </div>
             )}
-          </div>
+          </Link>
         ))}
       </div>
     </div>
